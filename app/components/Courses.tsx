@@ -143,7 +143,7 @@ export default function Courses() {
               {/* CTA */}
               <div style={{ padding: "0 24px 24px", marginTop: "auto" }}>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   style={{
                     display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                     width: "100%", padding: "12px",
@@ -167,7 +167,7 @@ export default function Courses() {
           <p style={{ color: "#64748b", fontSize: 15, marginBottom: 20 }}>
             Not sure which course is right for you?
           </p>
-          <a href="#contact" className="btn-primary">
+          <a href="/#contact" className="btn-primary">
             Book a Free Consultation
           </a>
         </div>

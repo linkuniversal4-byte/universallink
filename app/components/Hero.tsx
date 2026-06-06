@@ -118,7 +118,7 @@ export default function Hero() {
 
               {/* CTA Buttons */}
               <div className="hero-cta-row" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }}>
-                <a href="#contact" className="btn-primary" style={{ fontSize: 14, padding: "12px 22px" }}>
+                <a href="/#contact" className="btn-primary" style={{ fontSize: 14, padding: "12px 22px" }}>
                   <Calendar size={16} />
                   Book Free Trial
                 </a>
@@ -126,7 +126,7 @@ export default function Hero() {
                   <Play size={16} fill="#1a2e6e" />
                   Start Learning
                 </button>
-                <a href="#courses" className="btn-outline" style={{ fontSize: 14, padding: "12px 22px" }}>
+                <a href="/courses" className="btn-outline" style={{ fontSize: 14, padding: "12px 22px" }}>
                   View Courses
                   <ArrowRight size={16} />
                 </a>

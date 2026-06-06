@@ -36,7 +36,7 @@ export default function Footer() {
             <h4 style={{ fontWeight: 700, fontSize: 13, marginBottom: 16, color: "white", textTransform: "uppercase", letterSpacing: "0.08em" }}>Courses</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {["Quran Education", "English Language", "Sciences & Maths", "GCSE Preparation", "NAPLAN Preparation"].map((c) => (
-                <a key={c} href="#courses" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}
+                <a key={c} href="/courses" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}
                   onMouseOver={e => (e.currentTarget.style.color = "#f5a623")}
                   onMouseOut={e => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
                 >{c}</a>
@@ -49,11 +49,11 @@ export default function Footer() {
             <h4 style={{ fontWeight: 700, fontSize: 13, marginBottom: 16, color: "white", textTransform: "uppercase", letterSpacing: "0.08em" }}>Quick Links</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                { label: "Home", href: "#home" },
-                { label: "About Us", href: "#about" },
-                { label: "How It Works", href: "#how-it-works" },
-                { label: "Testimonials", href: "#testimonials" },
-                { label: "Contact", href: "#contact" },
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "/about" },
+                { label: "How It Works", href: "/how-it-works" },
+                { label: "Testimonials", href: "/testimonials" },
+                { label: "Contact", href: "/#contact" },
               ].map((l) => (
                 <a key={l.label} href={l.href} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}
                   onMouseOver={e => (e.currentTarget.style.color = "#f5a623")}

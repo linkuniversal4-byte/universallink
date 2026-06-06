@@ -37,7 +37,11 @@ const steps = [
   },
 ];
 
-export default function About() {
+type AboutProps = {
+  showHowItWorks?: boolean;
+};
+
+export default function About({ showHowItWorks = true }: AboutProps) {
   return (
     <>
       {/* About Section */}
@@ -74,7 +78,7 @@ export default function About() {
                 ))}
               </div>
 
-              <a href="#contact" className="btn-primary">
+              <a href="/#contact" className="btn-primary">
                 Get Started Today <ArrowRight size={16} />
               </a>
             </div>
@@ -129,6 +133,8 @@ export default function About() {
         </div>
       </section>
 
+      {showHowItWorks && (
+      <>
       {/* How It Works */}
       <section id="how-it-works" style={{ padding: "72px 0", background: "#f8fafc" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
@@ -199,7 +205,7 @@ export default function About() {
           <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 16, marginBottom: 32, lineHeight: 1.7 }}>
             Join 500+ students already learning with Universal Link. Book your free trial class today — no commitment required.
           </p>
-          <a href="#contact" style={{
+          <a href="/#contact" style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             background: "#f5a623", color: "white",
             padding: "14px 32px", borderRadius: 10,
@@ -211,6 +217,8 @@ export default function About() {
           </a>
         </div>
       </section>
+      </>
+      )}
 
       <style>{`
         @media (max-width: 768px) {

@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { Menu, X, Calendar, Phone } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Courses", href: "#courses" },
-  { label: "About Us", href: "#about" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Courses", href: "/courses" },
+  { label: "About Us", href: "/about" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
         height: 64,
       }}>
         {/* LOGO */}
-        <a href="#home" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", flexShrink: 0 }}>
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", flexShrink: 0 }}>
           <img src="/logo.png" alt="Universal Link Online Academy" style={{ height: 42 }} />
           <div style={{ lineHeight: 1.1 }}>
             <div style={{ fontWeight: 800, fontSize: 13, color: "#1a2e6e", letterSpacing: "0.05em" }}>UNIVERSAL LINK</div>
@@ -77,7 +77,7 @@ export default function Navbar() {
             <Phone size={13} />
             051 518 898477
           </a>
-          <a href="#contact" className="desktop-cta" style={{
+          <a href="/#contact" className="desktop-cta" style={{
             padding: "9px 14px",
             background: "#1a2e6e", color: "white",
             borderRadius: 8, textDecoration: "none",
@@ -118,7 +118,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setMenuOpen(false)} style={{
+          <a href="/#contact" onClick={() => setMenuOpen(false)} style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
