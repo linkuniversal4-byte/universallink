@@ -18,7 +18,7 @@ const team = [
     emoji: "👩‍💼",
   },
   {
-    name: "Adeem john",
+    name: "adeem john",
     role: "Digital Marketing Executive",
     tag: "DME",
     photo: "/digital-marketing.png",
