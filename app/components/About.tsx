@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, ShieldCheck, Globe2, Users, Target } from "lucide-react";
 
 const features = [
   "Expert-certified teachers with years of experience",
@@ -8,6 +8,33 @@ const features = [
   "Affordable pricing with no hidden fees",
   "Free trial class for every new student",
   "Regular progress reports for parents",
+];
+
+const values = [
+  {
+    icon: <ShieldCheck size={22} />,
+    title: "Trusted Teachers",
+    desc: "Students learn with experienced tutors who understand online teaching, student confidence, and parent expectations.",
+    color: "#1a2e6e",
+  },
+  {
+    icon: <Globe2 size={22} />,
+    title: "Worldwide Access",
+    desc: "Our online setup supports students across time zones with flexible scheduling and remote learning support.",
+    color: "#00b894",
+  },
+  {
+    icon: <Users size={22} />,
+    title: "Personal Attention",
+    desc: "Classes are structured around each student's current level, pace, goals, and preferred learning style.",
+    color: "#6c5ce7",
+  },
+  {
+    icon: <Target size={22} />,
+    title: "Clear Results",
+    desc: "We focus on practical progress: better recitation, stronger speaking, clearer concepts, and exam readiness.",
+    color: "#e67e22",
+  },
 ];
 
 const steps = [
@@ -133,6 +160,32 @@ export default function About({ showHowItWorks = true }: AboutProps) {
         </div>
       </section>
 
+      <section style={{ padding: "72px 0", background: "#f8fafc" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
+            <span className="section-badge">Why Families Choose Us</span>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 800, color: "#1a2e6e", marginBottom: 12 }}>
+              A Learning Experience Built Around Students
+            </h2>
+            <p style={{ color: "#64748b", fontSize: 15, lineHeight: 1.7, maxWidth: 620, margin: "0 auto" }}>
+              Universal Link is designed for parents who want reliable online classes and students who need patient, clear, consistent guidance.
+            </p>
+          </div>
+
+          <div className="values-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}>
+            {values.map((value) => (
+              <div key={value.title} className="card-hover" style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 16, padding: 22 }}>
+                <div style={{ width: 46, height: 46, borderRadius: 12, background: `${value.color}14`, color: value.color, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                  {value.icon}
+                </div>
+                <h3 style={{ fontSize: 17, fontWeight: 800, color: "#1a2e6e", marginBottom: 8 }}>{value.title}</h3>
+                <p style={{ color: "#64748b", fontSize: 13, lineHeight: 1.7 }}>{value.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {showHowItWorks && (
       <>
       {/* How It Works */}
@@ -226,6 +279,9 @@ export default function About({ showHowItWorks = true }: AboutProps) {
             grid-template-columns: 1fr !important;
             gap: 32px !important;
           }
+          .values-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
           .features-check-grid {
             grid-template-columns: 1fr !important;
           }
@@ -241,6 +297,9 @@ export default function About({ showHowItWorks = true }: AboutProps) {
           }
         }
         @media (max-width: 480px) {
+          .values-grid {
+            grid-template-columns: 1fr !important;
+          }
           .steps-grid {
             grid-template-columns: 1fr !important;
           }

@@ -2,28 +2,28 @@
 
 const team = [
   {
-    name: "Asfand yar",
+    name: "Asfand Yar",
     role: "Chief Executive Officer",
     tag: "CEO",
     photo: "/ceo.png",
     color: "#1a2e6e",
-    emoji: "👨‍💼",
+    initials: "CEO",
   },
   {
-    name: "shezail asad",
+    name: "Shezail Asad",
     role: "HR Manager",
     tag: "HR",
     photo: "/hr-manager.png",
     color: "#00b894",
-    emoji: "👩‍💼",
+    initials: "HR",
   },
   {
-    name: "adeem john",
+    name: "Adeem John",
     role: "Digital Marketing Executive",
     tag: "DME",
     photo: "/digital-marketing.png",
     color: "#f5a623",
-    emoji: "👨‍💻",
+    initials: "DME",
   },
 ];
 
@@ -31,8 +31,6 @@ export default function Team() {
   return (
     <section id="team" style={{ background: "#f8faff", padding: "80px 0" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <p style={{ color: "#f5a623", fontWeight: 600, fontSize: 13, letterSpacing: "0.08em", marginBottom: 10, textTransform: "uppercase" }}>
             Meet The Team
@@ -53,16 +51,15 @@ export default function Team() {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="team-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: 28,
           justifyItems: "center",
         }}>
-          {team.map((member, i) => (
+          {team.map((member) => (
             <div
-              key={i}
+              key={member.name}
               className="team-card"
               style={{
                 background: "white",
@@ -83,7 +80,6 @@ export default function Team() {
                 (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 24px rgba(26,46,110,0.08)";
               }}
             >
-              {/* Photo area */}
               <div style={{
                 background: `linear-gradient(135deg, ${member.color}15, ${member.color}30)`,
                 height: 220,
@@ -93,7 +89,6 @@ export default function Team() {
                 position: "relative",
                 overflow: "hidden",
               }}>
-                {/* Tag badge */}
                 <div style={{
                   position: "absolute",
                   top: 14,
@@ -105,11 +100,11 @@ export default function Team() {
                   padding: "4px 10px",
                   borderRadius: 20,
                   letterSpacing: "0.06em",
+                  zIndex: 2,
                 }}>
                   {member.tag}
                 </div>
 
-                {/* Photo */}
                 <img
                   src={member.photo}
                   alt={member.role}
@@ -122,22 +117,26 @@ export default function Team() {
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.style.display = "none";
-                    const parent = target.parentElement!;
+
+                    const parent = target.parentElement;
+                    if (!parent || parent.querySelector(".team-photo-fallback")) return;
+
                     const fallback = document.createElement("div");
+                    fallback.className = "team-photo-fallback";
                     fallback.style.cssText = `
                       width:90px;height:90px;border-radius:50%;
                       background:white;display:flex;align-items:center;
-                      justify-content:center;font-size:44px;
+                      justify-content:center;font-size:24px;font-weight:800;
+                      color:${member.color};letter-spacing:0.04em;
                       box-shadow:0 8px 24px rgba(0,0,0,0.1);
                       margin-bottom:20px;
                     `;
-                    fallback.textContent = member.emoji;
+                    fallback.textContent = member.initials;
                     parent.appendChild(fallback);
                   }}
                 />
               </div>
 
-              {/* Info — name removed */}
               <div style={{ padding: "18px 20px 22px" }}>
                 <h3 style={{
                   fontSize: 18,
@@ -157,7 +156,6 @@ export default function Team() {
                   {member.role}
                 </div>
 
-                {/* Divider */}
                 <div style={{
                   marginTop: 12,
                   height: 3,
