@@ -144,49 +144,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* People Cards */}
-              <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                {[
-                  { name: "Sarah Ahmed", role: "Quran Student", emoji: "👩‍🎓" },
-                  { name: "Ali Hassan", role: "English Learner", emoji: "👦" },
-                  { name: "Fatima Noor", role: "Math Student", emoji: "👧" },
-                ].map((person, i) => (
-                  <div key={i} style={{
-                    width: 180, height: 260,
-                    background: "white",
-                    borderRadius: 16,
-                    boxShadow: "0 8px 30px rgba(26,46,110,0.1)",
-                    display: "flex", flexDirection: "column",
-                    alignItems: "center",
-                    padding: "20px 12px 16px",
-                    textAlign: "center",
-                  }}>
-                    <div style={{
-                      width: 60, height: 60, borderRadius: "50%",
-                      background: i % 2 === 0 ? "#eef2ff" : "#fef3c7",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: 28, marginBottom: 10,
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                    }}>
-                      {person.emoji}
-                    </div>
-                    <div style={{ fontWeight: 700, fontSize: 14, color: "#1a2e6e", marginBottom: 2 }}>{person.name}</div>
-                    <div style={{ fontSize: 12, color: "#64748b", marginBottom: 12 }}>{person.role}</div>
-                    <div style={{ display: "flex", gap: 6, marginTop: "auto", flexDirection: "column", width: "100%" }}>
-                      <a href="/about" style={{
-                        display: "block", padding: "7px 0", borderRadius: 8,
-                        background: "#1a2e6e", color: "white",
-                        fontSize: 12, fontWeight: 700, textDecoration: "none",
-                      }}>Read More</a>
-                      <a href="/enroll" style={{
-                        display: "block", padding: "7px 0", borderRadius: 8,
-                        border: "1.5px solid #1a2e6e", color: "#1a2e6e",
-                        fontSize: 12, fontWeight: 700, textDecoration: "none",
-                      }}>Enroll Now</a>
-                    </div>
-                  </div>
-                ))}
-              </div>
+
             </div>
 
             {/* Right — Photo */}
