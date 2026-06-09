@@ -44,6 +44,131 @@ export type SubCourse = {
 
 export const courseData: Record<string, Record<string, SubCourse>> = {
   quran: {
+    noorani: {
+      title: "Noorani Qaida Course",
+      category: "Quran Education",
+      emoji: "📖",
+      color: "#1a2e6e",
+      tagline: "Build a strong foundation in Quran reading with Noorani Qaida",
+      rating: 5.0,
+      overview: {
+        duration: "30-45 min/class",
+        classesPerWeek: "3-5 classes",
+        level: "Beginner",
+        medium: "Urdu / English",
+      },
+      pricing: {
+        monthlyFee: "PKR 2,000/month",
+        registrationFee: "PKR 500",
+        whatsIncluded: [
+          "One-to-One Online Classes",
+          "Male & Female Qualified Teachers",
+          "Flexible Scheduling",
+          "Progress Tracking",
+          "Course Completion Certificate",
+        ],
+      },
+      schedule: [
+        { day: "Monday", morningBatch: "9:00 AM - 9:30 AM", eveningBatch: "6:00 PM - 6:30 PM" },
+        { day: "Tuesday", morningBatch: "9:00 AM - 9:30 AM", eveningBatch: "6:00 PM - 6:30 PM" },
+        { day: "Wednesday", morningBatch: "9:00 AM - 9:30 AM", eveningBatch: "6:00 PM - 6:30 PM" },
+        { day: "Thursday", morningBatch: "9:00 AM - 9:30 AM", eveningBatch: "6:00 PM - 6:30 PM" },
+        { day: "Friday", morningBatch: "9:00 AM - 9:30 AM", eveningBatch: "6:00 PM - 6:30 PM" },
+      ],
+      teacher: {
+        name: "Qari Abdul Rahman",
+        qualification: "Hafiz-ul-Quran, Ijazah in Tajweed",
+        bio: "Certified Quran teacher with over 10 years of experience teaching Noorani Qaida and Nazara to beginners. Specializes in building strong foundational reading skills for kids and adults.",
+        avatar: "🎙️",
+      },
+      syllabus: [
+        {
+          module: "Module 1: Arabic Alphabet Recognition",
+          topics: [
+            "Introduction to Arabic Letters",
+            "Letter Shapes and Names",
+            "Single Letter Identification",
+            "Writing and Reading Practice",
+          ],
+        },
+        {
+          module: "Module 2: Harakat (Vowels)",
+          topics: [
+            "Fatha (َ)",
+            "Kasra (ِ)",
+            "Damma (ُ)",
+            "Reading with Harakat",
+            "Pronunciation Practice",
+          ],
+        },
+        {
+          module: "Module 3: Joining Letters",
+          topics: [
+            "Two-Letter Words",
+            "Three-Letter Words",
+            "Connected Letter Forms",
+            "Reading Practice",
+          ],
+        },
+        {
+          module: "Module 4: Tanween and Sukoon",
+          topics: [
+            "Tanween Rules",
+            "Sukoon Recognition",
+            "Word Reading Exercises",
+            "Pronunciation Improvement",
+          ],
+        },
+        {
+          module: "Module 5: Madd (Long Vowels)",
+          topics: [
+            "Madd Letters",
+            "Long Sound Practice",
+            "Reading Exercises",
+            "Fluency Development",
+          ],
+        },
+        {
+          module: "Module 6: Shaddah and Advanced Reading",
+          topics: [
+            "Shaddah Rules",
+            "Combined Reading Exercises",
+            "Word Formation Practice",
+            "Error Correction",
+          ],
+        },
+        {
+          module: "Module 7: Basic Tajweed Introduction",
+          topics: [
+            "Makharij of Letters",
+            "Basic Tajweed Rules",
+            "Correct Pronunciation",
+            "Listening and Repetition Exercises",
+          ],
+        },
+        {
+          module: "Module 8: Qaida Completion",
+          topics: [
+            "Full Noorani Qaida Revision",
+            "Reading Assessment",
+            "Fluency Evaluation",
+            "Preparation for Quran Reading",
+          ],
+        },
+      ],
+      reviews: [
+        { name: "Amina K.", rating: 5, comment: "My 5-year-old loves the Noorani Qaida classes. The teacher is very patient and makes learning fun. Highly recommended for beginners!" },
+        { name: "Usman P.", rating: 5, comment: "I started from absolute zero and within 3 months I could read Arabic words fluently. Excellent foundation course." },
+        { name: "Fatima Z.", rating: 5, comment: "The step-by-step method is perfect for kids. My daughter completed the Qaida in 4 months and is now ready for Nazra." },
+      ],
+      faq: [
+        { question: "What is Noorani Qaida?", answer: "Noorani Qaida is a foundational book that teaches beginners how to read Arabic letters, form words, and pronounce them correctly before starting Quran recitation." },
+        { question: "Who can join this course?", answer: "Children (4+ years), beginners, adults starting Quran learning, reverts/new Muslims, and anyone wanting to improve their Quran reading skills." },
+        { question: "How long does the course take?", answer: "The course takes 2 to 6 months depending on the student's learning speed, age, and practice consistency." },
+        { question: "What will I learn?", answer: "You will learn Arabic alphabet recognition, vowel sounds (Harakat), letter joining, Tanween, Sukoon, Madd, Shaddah, and basic Tajweed principles." },
+        { question: "What after Noorani Qaida?", answer: "After completing Noorani Qaida, students are ready to start the Quran Nazara Course and Tajweed Course with confidence." },
+      ],
+    },
     nazara: {
       title: "Quran Nazara Course",
       category: "Quran Education",

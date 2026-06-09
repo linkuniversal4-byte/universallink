@@ -12,7 +12,7 @@ const courses = [
     title: "Quran Education",
     category: "Islamic Studies",
     desc: "Learn Quran recitation, Tajweed rules, Hifz, and Islamic studies with certified Hafiz teachers.",
-    subjects: ["Quran Nazara Course", "Quran Tajweed Course", "Quran Memorization (Hifz-ul-Quran)", "Islamic Studies"],
+    subjects: ["Noorani Qaida", "Quran Nazara Course", "Quran Tajweed Course", "Quran Memorization (Hifz-ul-Quran)", "Islamic Studies"],
     outcomes: ["Correct pronunciation", "Tajweed confidence", "Regular revision plan"],
     levels: "Beginner to advanced",
     duration: "Flexible",

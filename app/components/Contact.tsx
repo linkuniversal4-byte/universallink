@@ -37,7 +37,7 @@ const contactInfo = [
 const courseGroups = [
   {
     label: "QURAN",
-    options: ["Nazara", "Quran Tajweed Course", "Tafseer", "Quran Memorization (Hifz-ul-Quran)"],
+    options: ["Noorani Qaida", "Nazara", "Quran Tajweed Course", "Tafseer", "Quran Memorization (Hifz-ul-Quran)"],
   },
   {
     label: "ENGLISH",

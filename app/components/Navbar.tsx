@@ -8,6 +8,7 @@ const courseCategories = [
     label: "Quran",
     icon: "📖",
     sub: [
+      { key: "noorani", label: "Noorani Qaida" },
       { key: "nazara", label: "Nazara" },
       { key: "tajweed", label: "Tajweed" },
       { key: "tafseer", label: "Tafseer" },
