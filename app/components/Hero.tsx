@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Calendar, ArrowRight, Play, X } from "lucide-react";
+import { X } from "lucide-react";
 
 const avatars = ["👩‍🎓", "👦", "👧", "👨‍🎓"];
 
@@ -106,29 +106,43 @@ export default function Hero() {
                 fontWeight: 800,
                 lineHeight: 1.15,
                 color: "#1a1a2e",
-                marginBottom: 20,
+                marginBottom: 12,
               }}>
-                Learn Anytime,<br />
-                Anywhere —<br />
-                <span style={{ color: "#1a2e6e" }}>Build a Brighter Future</span>
+                Build a Brighter Future
               </h1>
+              <p style={{
+                fontSize: "clamp(16px, 2vw, 22px)",
+                color: "#1a2e6e",
+                fontWeight: 600,
+                marginBottom: 20,
+                opacity: 0.85,
+              }}>
+                Learn Anytime, Anywhere
+              </p>
               <p style={{ fontSize: 16, color: "#475569", lineHeight: 1.7, marginBottom: 32, maxWidth: 420 }}>
                 Live online classes with expert teachers for Quran, English, Math, Science, GCSE &amp; NAPLAN.
               </p>
 
               {/* CTA Buttons */}
               <div className="hero-cta-row" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }}>
-                <a href="/#contact" className="btn-primary" style={{ fontSize: 14, padding: "12px 22px" }}>
-                  <Calendar size={16} />
-                  Book Free Trial
+                <a href="/#contact" style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: "#1a2e6e", color: "white",
+                  padding: "13px 24px", borderRadius: 10,
+                  fontSize: 15, fontWeight: 700, textDecoration: "none",
+                  boxShadow: "0 6px 20px rgba(26,46,110,0.3)",
+                }}>
+                  <img src="/child.png" alt="" style={{ width: 26, height: 26, borderRadius: "50%", objectFit: "cover" }} />
+                  Enroll Now
                 </a>
-                <button onClick={() => setVideoOpen(true)} className="btn-outline" style={{ fontSize: 14, padding: "12px 22px", cursor: "pointer", border: "2px solid #1a2e6e", background: "transparent", color: "#1a2e6e", borderRadius: 10, fontWeight: 600, display: "flex", alignItems: "center", gap: 8 }}>
-                  <Play size={16} fill="#1a2e6e" />
-                  Start Learning
-                </button>
-                <a href="/courses" className="btn-outline" style={{ fontSize: 14, padding: "12px 22px" }}>
-                  View Courses
-                  <ArrowRight size={16} />
+                <a href="/#contact" style={{
+                  display: "inline-flex", alignItems: "center",
+                  background: "transparent", color: "#1a2e6e",
+                  padding: "13px 24px", borderRadius: 10,
+                  fontSize: 15, fontWeight: 700, textDecoration: "none",
+                  border: "2px solid #1a2e6e",
+                }}>
+                  Free Demo
                 </a>
               </div>
 

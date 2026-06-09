@@ -21,6 +21,7 @@ const courses = [
   },
   {
     emoji: "🗣️",
+    image: "",
     color: "#00b894",
     bgColor: "#e8fdf5",
     badge: "New",
@@ -36,6 +37,7 @@ const courses = [
   },
   {
     emoji: "🔬",
+    image: "",
     color: "#6c5ce7",
     bgColor: "#f0eeff",
     badge: "",
@@ -51,6 +53,7 @@ const courses = [
   },
   {
     emoji: "🎓",
+    image: "",
     color: "#e67e22",
     bgColor: "#fff7ee",
     badge: "Exam Prep",
@@ -76,7 +79,7 @@ export default function Courses() {
     <section id="courses" style={{ padding: "96px 0", background: "#f8fafc" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 64 }}>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="section-badge">Our Courses</span>
           <h2 style={{
             fontFamily: "'DM Sans', sans-serif",
@@ -85,11 +88,58 @@ export default function Courses() {
             color: "#1a2e6e",
             marginBottom: 16,
           }}>
-            Expert-Led Online Courses
+            Expert-Led Quran & Academic Courses
           </h2>
-          <p style={{ fontSize: 17, color: "#64748b", maxWidth: 560, margin: "0 auto", lineHeight: 1.7 }}>
+          <p style={{ fontSize: 17, color: "#64748b", maxWidth: 600, margin: "0 auto", lineHeight: 1.7 }}>
             From Quran education to GCSE prep, our certified teachers deliver live, interactive classes tailored to every student.
           </p>
+        </div>
+
+        {/* Featured Quran Hero Card */}
+        <div style={{
+          background: "linear-gradient(135deg, #1a2e6e 0%, #2d4a9e 50%, #1a2e6e 100%)",
+          borderRadius: 24,
+          padding: "clamp(28px, 3vw, 48px)",
+          marginBottom: 48,
+          position: "relative",
+          overflow: "hidden",
+          color: "white",
+        }}>
+          <div style={{ position: "absolute", top: -80, right: -80, width: 350, height: 350, borderRadius: "50%", background: "rgba(255,255,255,0.04)" }} />
+          <div style={{ position: "absolute", bottom: -50, left: -50, width: 250, height: 250, borderRadius: "50%", background: "rgba(245,166,35,0.07)" }} />
+
+          <div className="featured-quran-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 32, alignItems: "center", position: "relative", zIndex: 1 }}>
+            <div>
+              <span style={{ background: "#f5a623", color: "#1a2e6e", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "0.05em", display: "inline-block", marginBottom: 14 }}>
+                ✦ MOST POPULAR
+              </span>
+              <h3 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, marginBottom: 12, lineHeight: 1.2 }}>
+                Learn Quran Online
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, lineHeight: 1.7, maxWidth: 520, marginBottom: 24 }}>
+                Join our live online Quran classes with qualified teachers. Learn recitation, Tajweed, and Hifz from the comfort of your home.
+              </p>
+              <a href="/#contact" style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                background: "#f5a623", color: "#1a2e6e",
+                padding: "14px 32px 14px 20px", borderRadius: 12,
+                fontSize: 16, fontWeight: 700, textDecoration: "none",
+                boxShadow: "0 8px 24px rgba(245,166,35,0.4)",
+                transition: "all 0.3s ease",
+              }}>
+                <img src="/child.png" alt="" style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" }} />
+                Start Learning Quran
+              </a>
+            </div>
+            <div style={{
+              width: 140, height: 140, borderRadius: "50%",
+              background: "rgba(255,255,255,0.12)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              backdropFilter: "blur(4px)",
+            }}>
+              <img src="/child.png" alt="" style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", border: "3px solid rgba(255,255,255,0.3)" }} />
+            </div>
+          </div>
         </div>
 
         {/* Filter Dropdown */}
@@ -126,25 +176,27 @@ export default function Courses() {
           {filteredCourses.map((course, i) => (
             <div
               key={i}
-              className="card-hover"
+              className={`card-hover${course.title === "Quran Education" ? " card-quran-highlight" : ""}`}
               style={{
                 background: "white",
                 borderRadius: 20,
                 overflow: "hidden",
-                boxShadow: "0 4px 20px rgba(26,46,110,0.08)",
+                boxShadow: course.title === "Quran Education" ? "0 4px 24px rgba(245,166,35,0.2)" : "0 4px 20px rgba(26,46,110,0.08)",
                 display: "flex",
                 flexDirection: "column",
               }}
             >
-              {/* Card top */}
+              {/* Image */}
               <div style={{
+                height: 180,
                 background: course.bgColor,
-                padding: "28px 24px 20px",
+                display: "flex", alignItems: "center", justifyContent: "center",
                 position: "relative",
+                overflow: "hidden",
               }}>
                 {course.badge && (
                   <span style={{
-                    position: "absolute", top: 16, right: 16,
+                    position: "absolute", top: 12, right: 12, zIndex: 2,
                     background: course.color,
                     color: "white",
                     fontSize: 11, fontWeight: 700,
@@ -152,82 +204,71 @@ export default function Courses() {
                     letterSpacing: "0.05em",
                   }}>{course.badge}</span>
                 )}
-                <div style={{ fontSize: 48, marginBottom: 16 }}>
-                    {course.image ? (
-                      <img src={course.image} alt={course.title} style={{ width: 56, height: 56, borderRadius: 12, objectFit: "cover" }} />
-                    ) : (
-                      course.emoji
-                    )}
-                  </div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, color: "#1a1a2e", marginBottom: 8 }}>
-                  {course.title}
-                </h3>
-                <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.6 }}>{course.desc}</p>
+                <div style={{
+                  width: 96, height: 96, borderRadius: "50%",
+                  background: "white",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                }}>
+                  {course.image ? (
+                    <img src={course.image} alt={course.title} style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover" }} />
+                  ) : (
+                    <span style={{ fontSize: 40 }}>{course.emoji}</span>
+                  )}
+                </div>
               </div>
 
-              {/* Subjects */}
-              <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9" }}>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {/* Content */}
+              <div style={{ padding: "20px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
+                <h3 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a2e", marginBottom: 8 }}>
+                  {course.title}
+                </h3>
+                <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6, marginBottom: 14 }}>{course.desc}</p>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
                   {course.subjects.map((sub, j) => (
                     <span key={j} style={{
                       background: "#f1f5f9",
                       color: "#475569",
-                      fontSize: 12, fontWeight: 500,
-                      padding: "4px 10px", borderRadius: 20,
+                      fontSize: 11, fontWeight: 500,
+                      padding: "3px 8px", borderRadius: 16,
                     }}>{sub}</span>
                   ))}
                 </div>
-              </div>
 
-              <div style={{ padding: "18px 24px", borderBottom: "1px solid #f1f5f9" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: course.color, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                  What students gain
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  {course.outcomes.map((item, j) => (
-                    <div key={j} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#475569", lineHeight: 1.5 }}>
-                      <CheckCircle size={14} color={course.color} style={{ flexShrink: 0, marginTop: 2 }} />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div style={{ padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ display: "flex", gap: 14, fontSize: 13, color: "#64748b", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 14, fontSize: 12, color: "#64748b", flexWrap: "wrap", marginBottom: 16 }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                    <Clock size={13} /> {course.duration}
+                    <Clock size={12} /> {course.duration}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                    <BookOpen size={13} /> {course.levels}
+                    <BookOpen size={12} /> {course.levels}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                    <Users size={13} /> {course.students}
+                    <Users size={12} /> {course.students}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 4, color: "#f5a623" }}>
-                    <Star size={13} fill="#f5a623" /> {course.rating}
+                    <Star size={12} fill="#f5a623" /> {course.rating}
                   </span>
                 </div>
-              </div>
 
-              {/* CTA */}
-              <div style={{ padding: "0 24px 24px", marginTop: "auto" }}>
-                <a
-                  href="/#contact"
-                  style={{
-                    display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                    width: "100%", padding: "12px",
-                    background: course.color,
-                    color: "white", borderRadius: 10,
-                    fontSize: 14, fontWeight: 600,
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  Enroll Now <ArrowRight size={15} />
-                </a>
+                {/* CTA */}
+                <div style={{ display: "flex", gap: 8, marginTop: "auto" }}>
+                  <a href="/#contact" style={{
+                    flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+                    padding: "10px", background: course.color, color: "white",
+                    borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: "none",
+                  }}>
+                    Enroll Now <ArrowRight size={14} />
+                  </a>
+                  <a href="/#contact" style={{
+                    flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+                    padding: "10px", background: "transparent", color: course.color,
+                    borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: "none",
+                    border: `2px solid ${course.color}`,
+                  }}>
+                    Free Demo
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -275,10 +316,38 @@ export default function Courses() {
         </div>
       </div>
 
-      <style>{`
+        <style>{`
+        .card-quran-highlight {
+          border: 2px solid #f5a623 !important;
+          box-shadow: 0 4px 24px rgba(245,166,35,0.2) !important;
+          position: relative;
+        }
+        .card-quran-highlight::before {
+          content: "★ Featured";
+          position: absolute;
+          top: -1px;
+          left: 24px;
+          background: #f5a623;
+          color: #1a2e6e;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 3px 10px;
+          border-radius: 0 0 8px 8px;
+          z-index: 5;
+          letter-spacing: 0.05em;
+        }
         @media (max-width: 900px) {
           .course-detail-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .featured-quran-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+          }
+          .featured-quran-grid > div:last-child {
+            display: none !important;
           }
         }
         @media (max-width: 600px) {

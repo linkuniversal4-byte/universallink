@@ -1,29 +1,29 @@
 "use client";
-import { ArrowRight, ShieldCheck, Globe2, Users, Target, CheckCircle } from "lucide-react";
+import { ArrowRight, Globe2, Users, Target, CheckCircle } from "lucide-react";
 
 const values = [
   {
-    icon: <ShieldCheck size={22} />,
-    title: "Trusted Teachers",
-    desc: "Students learn with experienced tutors who understand online teaching, student confidence, and parent expectations.",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" /></svg>,
+    title: "Certified Hafiz Teachers",
+    desc: "Learn Quran from qualified Hafiz instructors with years of experience in Tajweed, Hifz, and Islamic studies.",
     color: "#1a2e6e",
   },
   {
     icon: <Globe2 size={22} />,
-    title: "Worldwide Access",
-    desc: "Our online setup supports students across time zones with flexible scheduling and remote learning support.",
+    title: "Global Quran Community",
+    desc: "Join students from 10+ countries learning Quran online with flexible scheduling across all time zones.",
     color: "#00b894",
   },
   {
     icon: <Users size={22} />,
-    title: "Personal Attention",
-    desc: "Classes are structured around each student's current level, pace, goals, and preferred learning style.",
+    title: "Personalized Quran Journey",
+    desc: "Each student follows a custom learning plan tailored to their current level, pace, and Quran memorization goals.",
     color: "#6c5ce7",
   },
   {
     icon: <Target size={22} />,
-    title: "Clear Results",
-    desc: "We focus on practical progress: better recitation, stronger speaking, clearer concepts, and exam readiness.",
+    title: "Clear Quran Progress",
+    desc: "Track improvement in recitation, Tajweed accuracy, Hifz progress, and regular teacher feedback for parents.",
     color: "#e67e22",
   },
 ];
@@ -32,25 +32,25 @@ const steps = [
   {
     num: "01",
     title: "Book Free Trial",
-    desc: "Fill out our contact form and schedule your free trial class.",
+    desc: "Sign up for a free Quran trial class — no commitment required.",
     color: "#1a2e6e",
   },
   {
     num: "02",
-    title: "Meet Your Teacher",
-    desc: "Get matched with a certified teacher suited to your needs.",
+    title: "Meet Your Hafiz Teacher",
+    desc: "Get matched with a certified Hafiz Quran teacher suited to your level.",
     color: "#00b894",
   },
   {
     num: "03",
-    title: "Start Learning",
-    desc: "Attend live classes and begin your learning journey.",
+    title: "Start Quran Classes",
+    desc: "Attend live interactive Quran classes and begin your learning journey.",
     color: "#6c5ce7",
   },
   {
     num: "04",
-    title: "Track Progress",
-    desc: "Receive regular updates and improve step by step.",
+    title: "Track Quran Progress",
+    desc: "Receive regular updates on recitation, Tajweed, and Hifz progress.",
     color: "#f5a623",
   },
 ];
@@ -78,16 +78,16 @@ export default function About({ showHowItWorks = true }: AboutProps) {
                 marginBottom: 20,
                 lineHeight: 1.2,
               }}>
-                Welcome to Universal Link Online Education System
+                Your Trusted Platform for Online Quran & Academic Learning
               </h2>
               <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 16 }}>
-                Universal Link Online Education System is a trusted online learning platform dedicated to providing high-quality education to students around the world. Our mission is to make learning accessible, engaging, and effective by connecting students with experienced and qualified teachers through personalized online classes.
+                Universal Link Online Education System is a trusted online learning platform dedicated to providing high-quality Quran education and academic courses to students around the world. Our mission is to make learning the Quran accessible, engaging, and effective by connecting students with experienced and qualified Hafiz teachers through personalized online classes.
               </p>
               <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 16 }}>
-                We believe that every student deserves the opportunity to achieve academic excellence and personal growth. Whether you are looking to strengthen your understanding of the Quran, improve your school performance, or prepare for international examinations, our comprehensive courses are designed to support your educational journey.
+                We believe that every student deserves the opportunity to connect with the Quran while achieving academic excellence and personal growth. Whether you are looking to learn Quran recitation with Tajweed, memorize the Quran through Hifz, strengthen your understanding of Islamic studies, or improve your school performance, our comprehensive courses are designed to support your educational journey.
               </p>
               <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 32 }}>
-                At Universal Link Online Education System, we combine modern teaching methods, interactive learning tools, and individualized attention to create a productive and inspiring learning environment for students of all ages.
+                At Universal Link Online Education System, we combine modern teaching methods, interactive learning tools, and individualized attention to create a productive and inspiring learning environment for students of all ages — rooted in strong moral values and a passion for knowledge.
               </p>
 
               <a href="/#contact" className="btn-primary">
@@ -116,10 +116,10 @@ export default function About({ showHowItWorks = true }: AboutProps) {
                   border: "2px solid rgba(255,255,255,0.08)",
                 }} />
 
-                <div style={{ fontSize: 36, marginBottom: 16 }}>🔭</div>
+                <div style={{ fontSize: 36, marginBottom: 16 }}>📖</div>
                 <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Our Vision</h3>
                 <p style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.7, fontSize: 14 }}>
-                  To become a leading global online education platform that empowers students with knowledge, skills, and confidence while promoting academic excellence, lifelong learning, and strong moral values.
+                  To become a leading global online platform for Quran and academic education that empowers students with knowledge, strong character, and a lifelong connection to the Quran.
                 </p>
               </div>
 
@@ -134,11 +134,11 @@ export default function About({ showHowItWorks = true }: AboutProps) {
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: "#1a2e6e", marginBottom: 14 }}>Our Mission</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {[
-                    "To provide affordable and high-quality online education.",
-                    "To help students achieve their academic and personal goals.",
-                    "To deliver personalized learning experiences through qualified educators.",
-                    "To nurture confidence, critical thinking, and a passion for learning.",
-                    "To make quality education accessible to students worldwide.",
+                    "To make Quran and academic education accessible worldwide.",
+                    "To help students recite Quran with correct Tajweed and memorization.",
+                    "To deliver personalized Quran classes through qualified Hafiz teachers.",
+                    "To nurture a love for the Quran alongside academic excellence.",
+                    "To provide affordable, high-quality online learning for every family.",
                   ].map((item, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, color: "#475569", lineHeight: 1.6 }}>
                       <CheckCircle size={16} color="#1a2e6e" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -157,10 +157,10 @@ export default function About({ showHowItWorks = true }: AboutProps) {
           <div style={{ textAlign: "center", marginBottom: 44 }}>
             <span className="section-badge">Why Families Choose Us</span>
             <h2 style={{ fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 800, color: "#1a2e6e", marginBottom: 12 }}>
-              A Learning Experience Built Around Students
+              Quran Learning Built Around Every Student
             </h2>
             <p style={{ color: "#64748b", fontSize: 15, lineHeight: 1.7, maxWidth: 620, margin: "0 auto" }}>
-              Universal Link is designed for parents who want reliable online classes and students who need patient, clear, consistent guidance.
+              Universal Link is designed for families who want reliable Quran classes and students who need patient, clear, consistent guidance from expert teachers.
             </p>
           </div>
 
@@ -191,10 +191,10 @@ export default function About({ showHowItWorks = true }: AboutProps) {
               color: "#1a2e6e",
               marginBottom: 14,
             }}>
-              Start Learning in 4 Simple Steps
+              Start Learning Quran in 4 Simple Steps
             </h2>
             <p style={{ fontSize: 15, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
-              Getting started is easy. Book your free trial and begin your learning journey today.
+              Getting started with Quran classes is easy. Book your free trial and begin your learning journey today.
             </p>
           </div>
 
@@ -245,20 +245,20 @@ export default function About({ showHowItWorks = true }: AboutProps) {
             color: "white",
             marginBottom: 14,
           }}>
-            Ready to Start Your Learning Journey?
+            Ready to Start Your Quran Journey?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 16, marginBottom: 32, lineHeight: 1.7 }}>
-            Join 500+ students already learning with Universal Link. Book your free trial class today — no commitment required.
+            Join 500+ students already learning Quran with Universal Link. Book your free trial class today — no commitment required.
           </p>
           <a href="/#contact" style={{
             display: "inline-flex", alignItems: "center", gap: 8,
-            background: "#f5a623", color: "white",
+            background: "#f5a623", color: "#1a2e6e",
             padding: "14px 32px", borderRadius: 10,
             fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "all 0.3s ease",
             boxShadow: "0 8px 24px rgba(245,166,35,0.4)",
           }}>
-            Book Free Trial Now <ArrowRight size={18} />
+            Start Learning Quran <ArrowRight size={18} />
           </a>
         </div>
       </section>

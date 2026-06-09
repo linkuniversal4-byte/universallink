@@ -17,7 +17,7 @@ const courseCategories = [
   {
     label: "Science",
     icon: "🔬",
-    sub: ["Biology", "Physics", "Chemistry"],
+    sub: ["Physics", "Chemistry", "Biology", "Mathematics"],
   },
 ];
 

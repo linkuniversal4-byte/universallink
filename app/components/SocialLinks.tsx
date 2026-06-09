@@ -3,7 +3,7 @@ import { useState } from "react";
 
 type Social = {
   name: string;
-  icon: "whatsapp" | "youtube" | "tiktok" | "snapchat" | "facebook" | "teams";
+  icon: "whatsapp" | "youtube" | "tiktok" | "snapchat" | "facebook" | "telegram";
   color: string;
   href: string;
   iconUrl: string;
@@ -46,11 +46,11 @@ export const socialLinks: Social[] = [
     iconUrl: "https://cdn.simpleicons.org/facebook/1877F2",
   },
   {
-    name: "MS Teams",
-    icon: "teams",
-    color: "#6264a7",
-    href: "https://www.microsoft.com/en-us/microsoft-teams/download-app",
-    iconUrl: "https://cdn.simpleicons.org/microsoftteams/6264A7",
+    name: "Telegram",
+    icon: "telegram",
+    color: "#0088cc",
+    href: "https://t.me/universallink",
+    iconUrl: "https://cdn.simpleicons.org/telegram/0088CC",
   },
 ];
 
@@ -70,7 +70,7 @@ export function BrandIcon({
     return null;
   }
 
-  if (name === "teams" || failed) {
+  if (name === "telegram" || failed) {
     return <FallbackBrandIcon name={name} color={color} size={size} />;
   }
 
@@ -112,15 +112,10 @@ function FallbackBrandIcon({
   };
 
   switch (name) {
-    case "teams":
+    case "telegram":
       return (
         <svg {...common}>
-          <path fill="#7B83EB" d="M29 7h7a5 5 0 0 1 5 5v7H29V7Z" />
-          <path fill="#5059C9" d="M29 18h10a5 5 0 0 1 5 5v8a7 7 0 0 1-14 0V18Z" />
-          <path fill="#6264A7" d="M7 14h23a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" />
-          <path fill="#fff" d="M25 22.2h-5.2V35h-4.1V22.2h-5.1V18.8H25v3.4Z" />
-          <circle cx="34.5" cy="13" r="5" fill="#7B83EB" />
-          <circle cx="39" cy="26" r="4" fill="#5059C9" />
+          <path fill="#0088cc" d="M24 4C12.96 4 4 12.96 4 24s8.96 20 20 20 20-8.96 20-20S35.04 4 24 4Zm9.04 14.04-3.12 14.72c-.24 1.04-.84 1.28-1.68.8l-4.64-3.44-2.24 2.16c-.24.24-.44.44-.92.44l.32-4.68 8.52-7.68c.36-.32-.08-.52-.56-.2l-10.52 6.64-4.56-1.44c-1-.32-1.02-1 .2-1.48l17.8-6.88c.84-.28 1.56.2 1.28 1.28Z" />
         </svg>
       );
     case "snapchat":
