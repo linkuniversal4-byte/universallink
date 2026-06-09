@@ -130,23 +130,14 @@ export default function Hero() {
                   fontSize: 15, fontWeight: 700, textDecoration: "none",
                   boxShadow: "0 6px 20px rgba(26,46,110,0.3)",
                 }}>
-                  <img src="/child.png" alt="" style={{ width: 26, height: 26, borderRadius: "50%", objectFit: "cover" }} />
                   Enroll Now
-                </a>
-                <a href="/#contact" style={{
-                  display: "inline-flex", alignItems: "center",
-                  background: "transparent", color: "#1a2e6e",
-                  padding: "13px 24px", borderRadius: 10,
-                  fontSize: 15, fontWeight: 700, textDecoration: "none",
-                  border: "2px solid #1a2e6e",
-                }}>
-                  Free Demo
                 </a>
               </div>
 
               {/* Hafiz Card */}
-              <div style={{
+              <div className="hero-card" style={{
                 width: 380,
+                maxWidth: "100%",
                 background: "white",
                 borderRadius: 20,
                 boxShadow: "0 12px 40px rgba(26,46,110,0.12)",
@@ -158,8 +149,8 @@ export default function Hero() {
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <img
-                    src="/hafz.png"
-                    alt="Hifz Program"
+                    src="/child.png"
+                    alt="Child Program"
                     style={{
                       height: "100%", width: "100%",
                       objectFit: "contain",
@@ -409,8 +400,20 @@ export default function Hero() {
             left: 8px !important;
             bottom: -8px !important;
           }
+          .hero-card {
+            width: 100% !important;
+          }
+          .hero-card img {
+            object-fit: cover !important;
+          }
         }
         @media (max-width: 480px) {
+          .hero-card > div:last-child {
+            padding: 14px !important;
+          }
+          .hero-card > div:last-child > div:last-child {
+            flex-direction: column !important;
+          }
           .features-grid {
             grid-template-columns: 1fr !important;
           }
