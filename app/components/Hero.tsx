@@ -121,19 +121,6 @@ export default function Hero() {
                 Live online classes with expert teachers for Quran, English, Math, Science, GCSE &amp; NAPLAN.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="hero-cta-row" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }}>
-                <a href="/enroll" style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "#1a2e6e", color: "white",
-                  padding: "13px 24px", borderRadius: 10,
-                  fontSize: 15, fontWeight: 700, textDecoration: "none",
-                  boxShadow: "0 6px 20px rgba(26,46,110,0.3)",
-                }}>
-                  Enroll Now
-                </a>
-              </div>
-
               {/* Hafiz Card */}
               <div className="hero-card" style={{
                 width: 380,
@@ -160,7 +147,7 @@ export default function Hero() {
                 </div>
                 <div style={{ padding: "16px 20px 20px" }}>
                   <div style={{ fontWeight: 800, fontSize: 18, color: "#1a2e6e", marginBottom: 4 }}>
-                    Hifz-ul-Quran Program
+                    Quran
                   </div>
                   <div style={{ fontSize: 13, color: "#64748b", marginBottom: 16, lineHeight: 1.5 }}>
                     Memorize the Quran with expert Huffaz. One-to-one sessions, flexible timing, and personalized progress tracking.
@@ -372,13 +359,7 @@ export default function Hero() {
           .hero-text {
             order: 1;
           }
-          .hero-cta-row {
-            flex-direction: column !important;
-          }
-          .hero-cta-row a {
-            width: 100% !important;
-            justify-content: center !important;
-          }
+
           .features-grid {
             grid-template-columns: 1fr 1fr !important;
           }
