@@ -144,6 +144,51 @@ export default function Hero() {
                 </a>
               </div>
 
+              {/* Hafiz Card */}
+              <div style={{
+                width: 380,
+                background: "white",
+                borderRadius: 20,
+                boxShadow: "0 12px 40px rgba(26,46,110,0.12)",
+                overflow: "hidden",
+              }}>
+                <div style={{
+                  height: 220,
+                  background: "linear-gradient(135deg, #eef2ff, #dbeafe)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  <img
+                    src="/hafz.png"
+                    alt="Hifz Program"
+                    style={{
+                      height: "100%", width: "100%",
+                      objectFit: "contain",
+                      padding: 16,
+                    }}
+                  />
+                </div>
+                <div style={{ padding: "16px 20px 20px" }}>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: "#1a2e6e", marginBottom: 4 }}>
+                    Hifz-ul-Quran Program
+                  </div>
+                  <div style={{ fontSize: 13, color: "#64748b", marginBottom: 16, lineHeight: 1.5 }}>
+                    Memorize the Quran with expert Huffaz. One-to-one sessions, flexible timing, and personalized progress tracking.
+                  </div>
+                  <div style={{ display: "flex", gap: 10 }}>
+                    <a href="/enroll" style={{
+                      flex: 1, textAlign: "center", padding: "11px 0", borderRadius: 10,
+                      background: "#1a2e6e", color: "white",
+                      fontSize: 14, fontWeight: 700, textDecoration: "none",
+                      boxShadow: "0 4px 14px rgba(26,46,110,0.25)",
+                    }}>Enroll Now</a>
+                    <a href="/courses" style={{
+                      flex: 1, textAlign: "center", padding: "11px 0", borderRadius: 10,
+                      border: "1.5px solid #1a2e6e", color: "#1a2e6e",
+                      fontSize: 14, fontWeight: 700, textDecoration: "none",
+                    }}>Read More</a>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
