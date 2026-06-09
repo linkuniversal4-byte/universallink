@@ -1083,7 +1083,7 @@ export const courseData: Record<string, Record<string, SubCourse>> = {
       category: "Academic",
       emoji: "🔬",
       color: "#6c5ce7",
-      tagline: "Explore the science of life from cells to ecosystems",
+      tagline: "Understand the fascinating world of living organisms through interactive and engaging online classes covering cell biology, human anatomy, genetics, ecology, and life sciences",
       rating: 4.9,
       overview: {
         duration: "60 min/class",
@@ -1095,11 +1095,11 @@ export const courseData: Record<string, Record<string, SubCourse>> = {
         monthlyFee: "PKR 3,500/month",
         registrationFee: "PKR 500",
         whatsIncluded: [
-          "Live interactive classes",
-          "Diagram and labeling practice",
+          "Live interactive online classes",
+          "Clear explanations and practical examples",
           "Lab experiment videos",
-          "Revision mind maps",
-          "Exam-focused preparation",
+          "Regular assessments and revision",
+          "Personalized learning experience",
         ],
       },
       schedule: [
