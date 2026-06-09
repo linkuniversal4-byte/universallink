@@ -125,7 +125,7 @@ export default function Hero() {
 
               {/* CTA Buttons */}
               <div className="hero-cta-row" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }}>
-                <a href="/#contact" style={{
+                <a href="/enroll" style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   background: "#1a2e6e", color: "white",
                   padding: "13px 24px", borderRadius: 10,

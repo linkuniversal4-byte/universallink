@@ -5,14 +5,14 @@ import { useState } from "react";
 const courses = [
   {
     emoji: "📖",
-    image: "/Quran.png",
+    image: "/nazara.png",
     color: "#1a2e6e",
     bgColor: "#eef2ff",
     badge: "Most Popular",
     title: "Quran Education",
     category: "Islamic Studies",
     desc: "Learn Quran recitation, Tajweed rules, Hifz, and Islamic studies with certified Hafiz teachers.",
-    subjects: ["Nazra Quran", "Tajweed", "Hifz", "Islamic Studies"],
+    subjects: ["Quran Nazara Course", "Quran Tajweed Course", "Quran Memorization (Hifz-ul-Quran)", "Islamic Studies"],
     outcomes: ["Correct pronunciation", "Tajweed confidence", "Regular revision plan"],
     levels: "Beginner to advanced",
     duration: "Flexible",
@@ -253,7 +253,7 @@ export default function Courses() {
 
                 {/* CTA */}
                 <div style={{ display: "flex", gap: 8, marginTop: "auto" }}>
-                  <a href="/#contact" style={{
+                  <a href="/enroll" style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                     padding: "10px", background: course.color, color: "white",
                     borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: "none",

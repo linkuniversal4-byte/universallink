@@ -89,9 +89,14 @@ export default function CourseDetail({ subject, sub }: { subject: string; sub: s
 
 /* ---------- 1. Hero Banner ---------- */
 function HeroBanner({ data }: { data: SubCourse }) {
+  const isHifz = data.title === "Quran Memorization (Hifz-ul-Quran)";
+  const isNazara = data.title === "Quran Nazara Course";
+  const bgImage = isHifz ? "/hafz.png" : isNazara ? "/nazara.png" : null;
   return (
     <div style={{
-      background: `linear-gradient(135deg, ${data.color} 0%, #2d4a9e 50%, ${data.color} 100%)`,
+      background: bgImage
+        ? `linear-gradient(rgba(26,46,110,0.85), rgba(45,74,158,0.85)), url('${bgImage}') center/cover no-repeat`
+        : `linear-gradient(135deg, ${data.color} 0%, #2d4a9e 50%, ${data.color} 100%)`,
       borderRadius: 24,
       padding: "clamp(32px, 4vw, 56px)",
       color: "white",
@@ -120,7 +125,7 @@ function HeroBanner({ data }: { data: SubCourse }) {
           ))}
           <span style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginLeft: 4 }}>{data.rating}</span>
         </div>
-        <a href="/#contact" style={{
+        <a href="/enroll" style={{
           display: "inline-flex", alignItems: "center", gap: 8,
           background: "#f5a623", color: "#1a2e6e",
           padding: "14px 32px", borderRadius: 12,
@@ -220,7 +225,7 @@ function PricingSection({ data }: { data: SubCourse }) {
             </div>
           ))}
         </div>
-        <a href="/#contact" style={{
+        <a href="/enroll" style={{
           display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
           width: "100%", padding: "14px",
           background: data.color, color: "white",

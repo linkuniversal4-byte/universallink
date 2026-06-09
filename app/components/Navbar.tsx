@@ -7,17 +7,32 @@ const courseCategories = [
   {
     label: "Quran",
     icon: "📖",
-    sub: ["Nazra", "Tajweed", "Tafseer"],
+    sub: [
+      { key: "nazara", label: "Nazara" },
+      { key: "tajweed", label: "Tajweed" },
+      { key: "tafseer", label: "Tafseer" },
+      { key: "hifz", label: "Quran Memorization (Hifz-ul-Quran)" },
+    ],
   },
   {
     label: "English",
     icon: "🇬🇧",
-    sub: ["Grammar", "Speaking", "Reading", "Writing"],
+    sub: [
+      { key: "grammar", label: "Grammar" },
+      { key: "speaking", label: "Speaking" },
+      { key: "reading", label: "Reading" },
+      { key: "writing", label: "Writing" },
+    ],
   },
   {
     label: "Science",
     icon: "🔬",
-    sub: ["Physics", "Chemistry", "Biology", "Mathematics"],
+    sub: [
+      { key: "physics", label: "Physics" },
+      { key: "chemistry", label: "Chemistry" },
+      { key: "biology", label: "Biology" },
+      { key: "mathematics", label: "Mathematics" },
+    ],
   },
 ];
 
@@ -190,8 +205,8 @@ export default function Navbar() {
                           }}>
                             {cat.sub.map((sub) => (
                               <a
-                                key={sub}
-                                href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.toLowerCase()}`}
+                                key={sub.key}
+                                href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.key}`}
                                 onClick={() => { setActiveLink("Courses"); setCoursesOpen(false); setActiveSub(null); }}
                                 style={{
                                   display: "block",
@@ -205,7 +220,7 @@ export default function Navbar() {
                                 onMouseOver={(e) => { e.currentTarget.style.background = "#eef2ff"; e.currentTarget.style.color = "#1a2e6e"; }}
                                 onMouseOut={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#475569"; }}
                               >
-                                {sub}
+                                {sub.label}
                               </a>
                             ))}
                           </div>
@@ -399,8 +414,8 @@ export default function Navbar() {
                               }}>
                                 {cat.sub.map((sub) => (
                                   <a
-                                    key={sub}
-                                    href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.toLowerCase()}`}
+                                    key={sub.key}
+                                    href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.key}`}
                                     onClick={() => { setMenuOpen(false); setActiveLink("Courses"); setCoursesOpen(false); setActiveSub(null); }}
                                     style={{
                                       display: "block",
@@ -411,7 +426,7 @@ export default function Navbar() {
                                       borderRadius: 6,
                                     }}
                                   >
-                                    {sub}
+                                    {sub.label}
                                   </a>
                                 ))}
                               </div>
