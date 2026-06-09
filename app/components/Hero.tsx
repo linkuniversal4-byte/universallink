@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const features = [
@@ -62,8 +62,18 @@ const features = [
   },
 ];
 
+const images = ["image1.png", "image2.png", "image3.png", "image4.png", "image5.png"];
+
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setImgIndex((prev) => (prev + 1) % images.length);
+    }, 500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="home" style={{ paddingTop: 64, overflowX: "hidden" }}>
