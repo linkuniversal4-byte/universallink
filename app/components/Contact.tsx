@@ -34,7 +34,18 @@ const contactInfo = [
   },
 ];
 
-const courses = ["Quran", "English", "Math", "Science", "GCSE", "NAPLAN"];
+const courseGroups = [
+  {
+    label: "QURAN",
+    options: ["Nazra", "Tajweed", "Tafseer"],
+  },
+  {
+    label: "ENGLISH",
+    options: ["Grammar", "Speaking", "Reading", "Writing"],
+  },
+];
+
+const standaloneCourses = ["Biology", "Physics", "Chemistry"];
 
 const initialFormData = {
   name: "",
@@ -177,7 +188,14 @@ export default function Contact() {
                   <FieldLabel>Course</FieldLabel>
                   <select name="course" required value={formData.course} onChange={handleChange} className="form-input">
                     <option value="">Select Course</option>
-                    {courses.map((course) => (
+                    {courseGroups.map((group) => (
+                      <optgroup key={group.label} label={group.label}>
+                        {group.options.map((opt) => (
+                          <option key={`${group.label}-${opt}`} value={`${group.label} - ${opt}`}>{opt}</option>
+                        ))}
+                      </optgroup>
+                    ))}
+                    {standaloneCourses.map((course) => (
                       <option key={course} value={course}>{course}</option>
                     ))}
                   </select>

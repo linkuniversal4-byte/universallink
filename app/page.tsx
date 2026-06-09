@@ -1,7 +1,6 @@
 "use client";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import SocialConnect from "./components/SocialConnect";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -13,7 +12,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <SocialConnect />
         <Team/>
         <Contact />
       </main>

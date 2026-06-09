@@ -1,13 +1,16 @@
 "use client";
-import { Clock, Users, Star, ArrowRight, CheckCircle, BookOpen, Video, BarChart3 } from "lucide-react";
+import { Clock, Users, Star, ArrowRight, CheckCircle, BookOpen, Video, BarChart3, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const courses = [
   {
     emoji: "📖",
+    image: "/Quran.png",
     color: "#1a2e6e",
     bgColor: "#eef2ff",
     badge: "Most Popular",
     title: "Quran Education",
+    category: "Islamic Studies",
     desc: "Learn Quran recitation, Tajweed rules, Hifz, and Islamic studies with certified Hafiz teachers.",
     subjects: ["Nazra Quran", "Tajweed", "Hifz", "Islamic Studies"],
     outcomes: ["Correct pronunciation", "Tajweed confidence", "Regular revision plan"],
@@ -22,6 +25,7 @@ const courses = [
     bgColor: "#e8fdf5",
     badge: "New",
     title: "English Language",
+    category: "Languages",
     desc: "Improve speaking, reading, writing, and grammar with native-level experienced English teachers.",
     subjects: ["Speaking", "Grammar", "Writing", "Reading"],
     outcomes: ["Fluent conversation", "Grammar accuracy", "Confident writing"],
@@ -36,6 +40,7 @@ const courses = [
     bgColor: "#f0eeff",
     badge: "",
     title: "Sciences & Maths",
+    category: "Academic",
     desc: "Expert tutoring for Physics, Chemistry, Biology, and Mathematics for all grade levels.",
     subjects: ["Physics", "Chemistry", "Biology", "Mathematics"],
     outcomes: ["Concept clarity", "Homework support", "Exam-focused practice"],
@@ -50,6 +55,7 @@ const courses = [
     bgColor: "#fff7ee",
     badge: "Exam Prep",
     title: "GCSE & NAPLAN",
+    category: "Exam Prep",
     desc: "Comprehensive GCSE and NAPLAN exam preparation with past papers, mock tests, and expert guidance.",
     subjects: ["Exam Strategies", "Past Papers", "Mock Tests", "All Subjects"],
     outcomes: ["Past paper practice", "Mock test review", "Score improvement plan"],
@@ -60,7 +66,12 @@ const courses = [
   },
 ];
 
+const categories = ["All", ...new Set(courses.map(c => c.category))];
+
 export default function Courses() {
+  const [filter, setFilter] = useState("All");
+  const filteredCourses = filter === "All" ? courses : courses.filter(c => c.category === filter);
+
   return (
     <section id="courses" style={{ padding: "96px 0", background: "#f8fafc" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
@@ -81,9 +92,38 @@ export default function Courses() {
           </p>
         </div>
 
+        {/* Filter Dropdown */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}>
+          <div style={{ position: "relative" }}>
+            <select
+              value={filter}
+              onChange={e => setFilter(e.target.value)}
+              style={{
+                appearance: "none",
+                background: "white",
+                border: "1px solid #e2e8f0",
+                borderRadius: 12,
+                padding: "10px 40px 10px 18px",
+                fontSize: 14,
+                fontWeight: 600,
+                color: "#1a2e6e",
+                cursor: "pointer",
+                outline: "none",
+                minWidth: 180,
+                fontFamily: "inherit",
+              }}
+            >
+              {categories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+            <ChevronDown size={16} style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", color: "#1a2e6e", pointerEvents: "none" }} />
+          </div>
+        </div>
+
         {/* Course Cards */}
         <div className="courses-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: 28 }}>
-          {courses.map((course, i) => (
+          {filteredCourses.map((course, i) => (
             <div
               key={i}
               className="card-hover"
@@ -112,7 +152,13 @@ export default function Courses() {
                     letterSpacing: "0.05em",
                   }}>{course.badge}</span>
                 )}
-                <div style={{ fontSize: 48, marginBottom: 16 }}>{course.emoji}</div>
+                <div style={{ fontSize: 48, marginBottom: 16 }}>
+                    {course.image ? (
+                      <img src={course.image} alt={course.title} style={{ width: 56, height: 56, borderRadius: 12, objectFit: "cover" }} />
+                    ) : (
+                      course.emoji
+                    )}
+                  </div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: "#1a1a2e", marginBottom: 8 }}>
                   {course.title}
                 </h3>

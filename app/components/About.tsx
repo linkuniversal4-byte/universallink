@@ -1,14 +1,5 @@
 "use client";
-import { CheckCircle, ArrowRight, ShieldCheck, Globe2, Users, Target } from "lucide-react";
-
-const features = [
-  "Expert-certified teachers with years of experience",
-  "Live interactive one-on-one and group sessions",
-  "Flexible scheduling to fit any timezone",
-  "Affordable pricing with no hidden fees",
-  "Free trial class for every new student",
-  "Regular progress reports for parents",
-];
+import { ArrowRight, ShieldCheck, Globe2, Users, Target, CheckCircle } from "lucide-react";
 
 const values = [
   {
@@ -87,31 +78,25 @@ export default function About({ showHowItWorks = true }: AboutProps) {
                 marginBottom: 20,
                 lineHeight: 1.2,
               }}>
-                Empowering Students Across the Globe
+                Welcome to Universal Link Online Education System
               </h2>
-              <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 20 }}>
-                Universal Link Online Academy connects students worldwide with highly qualified, experienced teachers. We believe quality education should be accessible to every student regardless of location.
+              <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 16 }}>
+                Universal Link Online Education System is a trusted online learning platform dedicated to providing high-quality education to students around the world. Our mission is to make learning accessible, engaging, and effective by connecting students with experienced and qualified teachers through personalized online classes.
+              </p>
+              <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 16 }}>
+                We believe that every student deserves the opportunity to achieve academic excellence and personal growth. Whether you are looking to strengthen your understanding of the Quran, improve your school performance, or prepare for international examinations, our comprehensive courses are designed to support your educational journey.
               </p>
               <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.8, marginBottom: 32 }}>
-                Founded with a passion for education, we offer live online classes in Quran, English, Sciences, and exam preparation — all from the comfort of your home.
+                At Universal Link Online Education System, we combine modern teaching methods, interactive learning tools, and individualized attention to create a productive and inspiring learning environment for students of all ages.
               </p>
-
-              <div className="features-check-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
-                {features.map((f, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#374151" }}>
-                    <CheckCircle size={16} color="#1a2e6e" style={{ flexShrink: 0, marginTop: 2 }} />
-                    {f}
-                  </div>
-                ))}
-              </div>
 
               <a href="/#contact" className="btn-primary">
                 Get Started Today <ArrowRight size={16} />
               </a>
             </div>
 
-            {/* Right — Visual */}
-            <div style={{ position: "relative" }}>
+            {/* Right — Vision & Mission */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <div className="mission-card" style={{
                 background: "linear-gradient(135deg, #1a2e6e, #2a3f8f)",
                 borderRadius: 24,
@@ -131,26 +116,33 @@ export default function About({ showHowItWorks = true }: AboutProps) {
                   border: "2px solid rgba(255,255,255,0.08)",
                 }} />
 
-                <div style={{ fontSize: 36, marginBottom: 16 }}>🌟</div>
-                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Our Mission</h3>
+                <div style={{ fontSize: 36, marginBottom: 16 }}>🔭</div>
+                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Our Vision</h3>
                 <p style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.7, fontSize: 14 }}>
-                  To provide world-class online education that bridges the gap between students and expert teachers, making quality learning accessible from anywhere in the world.
+                  To become a leading global online education platform that empowers students with knowledge, skills, and confidence while promoting academic excellence, lifelong learning, and strong moral values.
                 </p>
+              </div>
 
-                <div className="mission-stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 28 }}>
+              <div style={{
+                background: "white",
+                borderRadius: 24,
+                padding: 28,
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 4px 20px rgba(26,46,110,0.07)",
+              }}>
+                <div style={{ fontSize: 36, marginBottom: 14 }}>🎯</div>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: "#1a2e6e", marginBottom: 14 }}>Our Mission</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {[
-                    { num: "500+", label: "Students" },
-                    { num: "50+", label: "Teachers" },
-                    { num: "10+", label: "Countries" },
-                    { num: "5★", label: "Rating" },
-                  ].map((s, i) => (
-                    <div key={i} style={{
-                      background: "rgba(255,255,255,0.1)",
-                      borderRadius: 12, padding: "14px",
-                      textAlign: "center",
-                    }}>
-                      <div style={{ fontSize: 22, fontWeight: 800, color: "#f5a623" }}>{s.num}</div>
-                      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>{s.label}</div>
+                    "To provide affordable and high-quality online education.",
+                    "To help students achieve their academic and personal goals.",
+                    "To deliver personalized learning experiences through qualified educators.",
+                    "To nurture confidence, critical thinking, and a passion for learning.",
+                    "To make quality education accessible to students worldwide.",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, color: "#475569", lineHeight: 1.6 }}>
+                      <CheckCircle size={16} color="#1a2e6e" style={{ flexShrink: 0, marginTop: 3 }} />
+                      {item}
                     </div>
                   ))}
                 </div>
