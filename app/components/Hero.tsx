@@ -146,12 +146,13 @@ export default function Hero() {
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <img
-                    src="/child.png"
-                    alt="Child Program"
+                    src={`/${images[imgIndex]}`}
+                    alt="Slideshow"
                     style={{
                       height: "100%", width: "100%",
                       objectFit: "contain",
                       padding: 16,
+                      transition: "opacity 0.3s ease",
                     }}
                   />
                 </div>
