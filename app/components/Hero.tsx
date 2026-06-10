@@ -1,413 +1,231 @@
 "use client";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 
-const features = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-    label: "Certified Teachers",
-    desc: "Qualified and experienced educators.",
-    color: "#1a2e6e",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-      </svg>
-    ),
-    label: "Live Classes",
-    desc: "Interactive live sessions anytime.",
-    color: "#00b894",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-    label: "Flexible Timings",
-    desc: "Choose classes that suit your schedule.",
-    color: "#6c5ce7",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-      </svg>
-    ),
-    label: "One-to-One Support",
-    desc: "Personalized attention for every student.",
-    color: "#e67e22",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-    label: "Global Learning",
-    desc: "Learn from anywhere in the world.",
-    color: "#1a2e6e",
-  },
-];
-
-const images = ["image1.png", "image2.png", "image3.png", "image4.png", "image5.png"];
+const sliderImages = ["image1.png", "image2.png", "image3.png", "image4.png", "image5.png"];
 
 export default function Hero() {
-  const [videoOpen, setVideoOpen] = useState(false);
-  const [imgIndex, setImgIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setImgIndex((prev) => (prev + 1) % images.length);
-    }, 500);
+      setActiveIndex((prev) => (prev + 1) % sliderImages.length);
+    }, 5500);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="home" style={{ paddingTop: 64, overflowX: "hidden" }}>
-      {/* Main Hero */}
-      <div style={{
-        background: "linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #f0f9ff 100%)",
-        minHeight: "calc(100vh - 64px)",
-        display: "flex",
-        alignItems: "center",
+    <section
+      id="home"
+      style={{
         position: "relative",
+        width: "100%",
+        height: "100dvh",
         overflow: "hidden",
-      }}>
-        {/* Background circles — clipped inside overflow:hidden parent */}
-        <div style={{
-          position: "absolute", top: -100, right: -100,
-          width: 400, height: 400, borderRadius: "50%",
-          background: "rgba(26,46,110,0.04)",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", bottom: -80, left: -80,
-          width: 300, height: 300, borderRadius: "50%",
-          background: "rgba(245,166,35,0.06)",
-          pointerEvents: "none",
-        }} />
+      }}
+    >
+      {/* Slider images */}
+      {sliderImages.map((img, i) => (
+        <div
+          key={img}
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: i === activeIndex ? 1 : 0,
+            transition: "opacity 1.5s ease",
+            zIndex: i === activeIndex ? 1 : 0,
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              backgroundImage: `url(/${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              animation: i === activeIndex ? "kenBurns 5.5s ease-in-out forwards" : "none",
+            }}
+          />
+        </div>
+      ))}
 
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 16px", width: "100%" }}>
-          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+      {/* Dark overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          background: "linear-gradient(135deg, rgba(10,20,50,0.65) 0%, rgba(10,20,50,0.4) 100%)",
+        }}
+      />
 
-            {/* Left Content */}
-            <div className="animate-slideInLeft hero-text">
-              <p style={{ color: "#f5a623", fontWeight: 600, fontSize: 14, marginBottom: 16, letterSpacing: "0.02em" }}>
-                Connecting Students to Knowledge Worldwide.
-              </p>
-              <h1 style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "clamp(28px, 5vw, 58px)",
-                fontWeight: 800,
-                lineHeight: 1.15,
-                color: "#1a1a2e",
-                marginBottom: 12,
-              }}>
-                Build a Brighter Future
-              </h1>
-              <p style={{
-                fontSize: "clamp(16px, 2vw, 22px)",
+      {/* Content overlay */}
+      <div
+        className="hero-content"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 3,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "100px 24px 40px",
+          color: "white",
+        }}
+      >
+        <div className="hero-text-inner" style={{ maxWidth: 800 }}>
+          <span
+            style={{
+              display: "inline-block",
+              background: "rgba(245,166,35,0.2)",
+              border: "1px solid rgba(245,166,35,0.4)",
+              color: "#f5a623",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              padding: "6px 18px",
+              borderRadius: 50,
+              marginBottom: 20,
+            }}
+          >
+            Welcome to
+          </span>
+
+          <h1
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "clamp(28px, 5vw, 56px)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              marginBottom: 16,
+              textShadow: "0 2px 20px rgba(0,0,0,0.3)",
+            }}
+          >
+            Universal Link <br />
+            <span style={{ color: "#f5a623" }}>Education System</span>
+          </h1>
+
+          <p
+            style={{
+              fontSize: "clamp(15px, 2vw, 19px)",
+              color: "rgba(255,255,255,0.9)",
+              lineHeight: 1.7,
+              maxWidth: 640,
+              margin: "0 auto 32px",
+              textShadow: "0 1px 10px rgba(0,0,0,0.2)",
+            }}
+          >
+            Empowering students worldwide with expert-led Quran, English, Science,
+            Math &amp; GCSE courses through live interactive online classes.
+          </p>
+
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href="/enroll"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "#f5a623",
                 color: "#1a2e6e",
+                padding: "16px 36px",
+                borderRadius: 12,
+                fontSize: 16,
+                fontWeight: 700,
+                textDecoration: "none",
+                boxShadow: "0 8px 28px rgba(245,166,35,0.45)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 36px rgba(245,166,35,0.55)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 28px rgba(245,166,35,0.45)";
+              }}
+            >
+              Enroll Now
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a
+              href="/courses"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(6px)",
+                color: "white",
+                padding: "16px 36px",
+                borderRadius: 12,
+                fontSize: 16,
                 fontWeight: 600,
-                marginBottom: 20,
-                opacity: 0.85,
-              }}>
-                Learn Anytime, Anywhere
-              </p>
-              <p style={{ fontSize: 16, color: "#475569", lineHeight: 1.7, marginBottom: 32, maxWidth: 420 }}>
-                Live online classes with expert teachers for Quran, English, Math, Science, GCSE &amp; NAPLAN.
-              </p>
-
-              {/* Hafiz Card */}
-              <div className="hero-card" style={{
-                width: 380,
-                maxWidth: "100%",
-                background: "white",
-                borderRadius: 20,
-                boxShadow: "0 12px 40px rgba(26,46,110,0.12)",
-                overflow: "hidden",
-              }}>
-                <div style={{
-                  height: 220,
-                  background: "linear-gradient(135deg, #eef2ff, #dbeafe)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                }}>
-                  <img
-                    src={`/${images[imgIndex]}`}
-                    alt="Slideshow"
-                    style={{
-                      height: "100%", width: "100%",
-                      objectFit: "contain",
-                      padding: 16,
-                      transition: "opacity 0.3s ease",
-                    }}
-                  />
-                </div>
-                <div style={{ padding: "16px 20px 20px" }}>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: "#1a2e6e", marginBottom: 4 }}>
-                    Quran
-                  </div>
-                  <div style={{ fontSize: 13, color: "#64748b", marginBottom: 16, lineHeight: 1.5 }}>
-                    Memorize the Quran with expert Huffaz. One-to-one sessions, flexible timing, and personalized progress tracking.
-                  </div>
-                  <div style={{ display: "flex", gap: 10 }}>
-                    <a href="/enroll" style={{
-                      flex: 1, textAlign: "center", padding: "11px 0", borderRadius: 10,
-                      background: "#1a2e6e", color: "white",
-                      fontSize: 14, fontWeight: 700, textDecoration: "none",
-                      boxShadow: "0 4px 14px rgba(26,46,110,0.25)",
-                    }}>Enroll Now</a>
-                    <a href="/courses" style={{
-                      flex: 1, textAlign: "center", padding: "11px 0", borderRadius: 10,
-                      border: "1.5px solid #1a2e6e", color: "#1a2e6e",
-                      fontSize: 14, fontWeight: 700, textDecoration: "none",
-                    }}>Read More</a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Right — Photo */}
-            <div className="animate-slideInRight hero-illustration" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-              <div style={{
-                background: "white",
-                borderRadius: 24,
-                padding: 20,
-                boxShadow: "0 20px 60px rgba(26,46,110,0.15)",
-                position: "relative",
-                width: "100%",
-                maxWidth: 420,
-              }}>
-                <div style={{
-                  background: "linear-gradient(135deg, #eef2ff, #dbeafe)",
-                  borderRadius: 16,
-                  height: 300,
-                  width: "100%",
-                  position: "relative",
-                  overflow: "hidden",
-                }}>
-                  <img
-                    src="/hero-student.png"
-                    alt="Student reading a book"
-                    style={{
-                      height: "100%", width: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center top",
-                      borderRadius: 16,
-                    }}
-                  />
-
-                  <div className="animate-float badge-live" style={{
-                    position: "absolute", top: 12, left: 12,
-                    background: "#1a2e6e", color: "white",
-                    borderRadius: 10, padding: "6px 10px",
-                    fontSize: 10, fontWeight: 600,
-                    boxShadow: "0 8px 20px rgba(26,46,110,0.3)",
-                    display: "flex", alignItems: "center", gap: 6,
-                    zIndex: 2,
-                  }}>
-                    <span className="live-dot" />
-                    Live Interactive Classes
-                  </div>
-
-                  <div className="animate-float delay-300 badge-certified" style={{
-                    position: "absolute", top: 12, right: 12,
-                    background: "white",
-                    borderRadius: 10, padding: "6px 10px",
-                    fontSize: 10, fontWeight: 600, color: "#1a2e6e",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-                    zIndex: 2,
-                  }}>
-                    🎓 Certified Teachers
-                  </div>
-
-                  <div className="animate-float delay-200 badge-countries" style={{
-                    position: "absolute", bottom: 12, right: 12,
-                    background: "white",
-                    borderRadius: 10, padding: "6px 10px",
-                    fontSize: 10, fontWeight: 600, color: "#1a2e6e",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-                    zIndex: 2,
-                  }}>
-                    🌍 10+ Countries
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating teacher card */}
-              <div className="animate-float delay-100 badge-teacher" style={{
-                position: "absolute",
-                bottom: -16,
-                left: 0,
-                background: "white",
-                borderRadius: 14,
-                padding: "10px 14px",
-                boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
-                display: "flex", alignItems: "center", gap: 8,
-                zIndex: 2,
-              }}>
-                <div style={{ width: 36, height: 36, borderRadius: "50%", background: "#eef2ff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>
-                  👩‍🏫
-                </div>
-                <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "#1a2e6e" }}>Expert Teacher</div>
-                  <div style={{ fontSize: 10, color: "#64748b" }}>Let's learn together!</div>
-                </div>
-                <div style={{ width: 24, height: 24, background: "#1a2e6e", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21" /></svg>
-                </div>
-              </div>
-            </div>
-
+                textDecoration: "none",
+                border: "1.5px solid rgba(255,255,255,0.3)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.2)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+              }}
+            >
+              Explore Courses
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Feature strips */}
-      <div style={{ background: "white", padding: "28px 0", borderBottom: "1px solid #e2e8f0" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-          <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12 }}>
-            {features.map((f, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 6px" }}>
-                <div style={{
-                  width: 42, height: 42, borderRadius: 10,
-                  background: f.color,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0,
-                  boxShadow: `0 4px 12px ${f.color}40`,
-                }}>
-                  {f.icon}
-                </div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 12, color: "#1a2e6e", marginBottom: 2 }}>{f.label}</div>
-                  <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.4 }}>{f.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Slide indicators */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 32,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 3,
+          display: "flex",
+          gap: 10,
+        }}
+      >
+        {sliderImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            style={{
+              width: i === activeIndex ? 28 : 10,
+              height: 10,
+              borderRadius: 5,
+              border: "none",
+              background: i === activeIndex ? "#f5a623" : "rgba(255,255,255,0.4)",
+              cursor: "pointer",
+              transition: "all 0.4s ease",
+              padding: 0,
+            }}
+          />
+        ))}
       </div>
-
-      {/* Stats banner */}
-      <div style={{ background: "#1a2e6e", padding: "36px 0" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-          <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
-            {[
-              { icon: "🎓", number: "500+", label: "Happy Students Worldwide" },
-              { icon: "📚", number: "50+", label: "Expert Teachers" },
-              { icon: "📹", number: "100+", label: "Live Classes Every Month" },
-              { icon: "🌐", number: "10+", label: "Countries Connected" },
-            ].map((stat, i) => (
-              <div key={i} style={{
-                textAlign: "center",
-                borderRight: i < 3 ? "1px solid rgba(255,255,255,0.15)" : "none",
-                padding: "0 8px",
-              }} className="animate-countUp">
-                <div style={{ fontSize: 24, marginBottom: 6 }}>{stat.icon}</div>
-                <div style={{ fontSize: 26, fontWeight: 800, color: "white", marginBottom: 4, lineHeight: 1 }}>{stat.number}</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", lineHeight: 1.4 }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Video Modal */}
-      {videoOpen && (
-        <div onClick={() => setVideoOpen(false)} style={{
-          position: "fixed", inset: 0, zIndex: 9999,
-          background: "rgba(0,0,0,0.8)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          padding: 16,
-        }}>
-          <div onClick={e => e.stopPropagation()} style={{
-            position: "relative", width: "100%", maxWidth: 800,
-            background: "#000", borderRadius: 16, overflow: "hidden",
-          }}>
-            <button onClick={() => setVideoOpen(false)} style={{
-              position: "absolute", top: 8, right: 8, zIndex: 10,
-              width: 36, height: 36, borderRadius: "50%",
-              background: "rgba(0,0,0,0.6)", color: "white",
-              border: "none", cursor: "pointer",
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <X size={18} />
-            </button>
-            <video controls autoPlay style={{ width: "100%", display: "block" }}>
-              <source src="/intro-video.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      )}
 
       <style>{`
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 24px !important;
-          }
-          .hero-illustration {
-            order: -1;
-            margin-bottom: 8px;
-          }
-          .hero-illustration > div {
-            max-width: 100% !important;
-          }
-          .hero-text {
-            order: 1;
-          }
-
-          .features-grid {
-            grid-template-columns: 1fr 1fr !important;
-          }
-          .stats-grid {
-            grid-template-columns: 1fr 1fr !important;
-          }
-          .stats-grid > div {
-            border-right: none !important;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            padding: 16px 8px !important;
-          }
-          .stats-grid > div:nth-child(odd) {
-            border-right: 1px solid rgba(255,255,255,0.15) !important;
-          }
-          .stats-grid > div:nth-last-child(-n+2) {
-            border-bottom: none !important;
-          }
-          .badge-teacher {
-            left: 8px !important;
-            bottom: -8px !important;
-          }
-          .hero-card {
-            width: 100% !important;
-          }
-          .hero-card img {
-            object-fit: cover !important;
+        @keyframes kenBurns {
+          from { transform: scale(1); }
+          to { transform: scale(1.1); }
+        }
+        @media (max-width: 900px) {
+          .hero-content {
+            padding-top: 80px !important;
           }
         }
-        @media (max-width: 480px) {
-          .hero-card > div:last-child {
-            padding: 14px !important;
-          }
-          .hero-card > div:last-child > div:last-child {
-            flex-direction: column !important;
-          }
-          .features-grid {
-            grid-template-columns: 1fr !important;
+        @media (max-width: 768px) {
+          .hero-text-inner {
+            max-width: 100% !important;
           }
         }
       `}</style>

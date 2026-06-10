@@ -59,9 +59,14 @@ const courses = [
     badge: "Exam Prep",
     title: "GCSE & NAPLAN",
     category: "Exam Prep",
-    desc: "Comprehensive GCSE and NAPLAN exam preparation with past papers, mock tests, and expert guidance.",
-    subjects: ["Exam Strategies", "Past Papers", "Mock Tests", "All Subjects"],
-    outcomes: ["Past paper practice", "Mock test review", "Score improvement plan"],
+    desc: "Our GCSE Online Education program helps students achieve academic success through high-quality online learning and expert guidance. The course covers core subjects including Mathematics, English, Biology, Chemistry, Physics, and more. With flexible scheduling, interactive lessons, and one-to-one support, students confidently prepare for exams from anywhere.",
+    subjects: ["Mathematics", "English", "Biology", "Chemistry", "Physics"],
+    outcomes: [
+      "Personalized instruction from experienced teachers",
+      "Past paper practice & mock tests",
+      "Regular assessments to improve grades",
+      "One-to-one support & flexible scheduling",
+    ],
     levels: "GCSE and NAPLAN",
     duration: "90 min/class",
     students: "80+",
@@ -225,7 +230,7 @@ export default function Courses() {
                 </h3>
                 <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6, marginBottom: 14 }}>{course.desc}</p>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 10 }}>
                   {course.subjects.map((sub, j) => (
                     <span key={j} style={{
                       background: "#f1f5f9",
@@ -235,6 +240,18 @@ export default function Courses() {
                     }}>{sub}</span>
                   ))}
                 </div>
+
+                {/* Highlighted outcomes */}
+                {course.outcomes.length > 0 && (
+                  <div style={{ marginBottom: 14 }}>
+                    {course.outcomes.map((outcome, j) => (
+                      <div key={j} style={{ display: "flex", alignItems: "center", gap: 6, padding: "3px 0", fontSize: 12, color: "#475569" }}>
+                        <CheckCircle size={14} color={course.color} style={{ flexShrink: 0 }} />
+                        <span>{outcome}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <div style={{ display: "flex", gap: 14, fontSize: 12, color: "#64748b", flexWrap: "wrap", marginBottom: 16 }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
