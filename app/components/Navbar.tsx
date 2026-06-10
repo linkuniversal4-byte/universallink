@@ -207,7 +207,7 @@ export default function Navbar() {
                             {cat.sub.map((sub) => (
                               <a
                                 key={sub.key}
-                                href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.key}`}
+                                href={`/courses/${cat.label.toLowerCase()}/${sub.key}`}
                                 onClick={() => { setActiveLink("Courses"); setCoursesOpen(false); setActiveSub(null); }}
                                 style={{
                                   display: "block",
@@ -416,7 +416,7 @@ export default function Navbar() {
                                 {cat.sub.map((sub) => (
                                   <a
                                     key={sub.key}
-                                    href={`/courses?subject=${cat.label.toLowerCase()}&sub=${sub.key}`}
+                                    href={`/courses/${cat.label.toLowerCase()}/${sub.key}`}
                                     onClick={() => { setMenuOpen(false); setActiveLink("Courses"); setCoursesOpen(false); setActiveSub(null); }}
                                     style={{
                                       display: "block",

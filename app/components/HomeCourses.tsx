@@ -12,6 +12,8 @@ const courses = [
     subjects: ["Noorani Qaida", "Tajweed", "Hifz"],
     students: "200+",
     rating: 5.0,
+    subject: "quran",
+    sub: "",
   },
   {
     image: "/image3.png",
@@ -23,6 +25,8 @@ const courses = [
     subjects: ["Speaking", "Grammar", "Writing"],
     students: "150+",
     rating: 4.9,
+    subject: "english",
+    sub: "grammar",
   },
   {
     image: "/image5.png",
@@ -34,6 +38,8 @@ const courses = [
     subjects: ["Physics", "Chemistry", "Biology", "Math"],
     students: "100+",
     rating: 4.8,
+    subject: "science",
+    sub: "physics",
   },
   {
     image: "/image6.png",
@@ -45,6 +51,8 @@ const courses = [
     subjects: ["Mathematics", "English", "Biology", "Physics"],
     students: "80+",
     rating: 4.9,
+    subject: "science",
+    sub: "mathematics",
   },
 ];
 
@@ -227,7 +235,7 @@ export default function HomeCourses() {
 
                 {/* CTA */}
                 <a
-                  href="/courses"
+                  href={course.sub ? `/courses/${course.subject}/${course.sub}` : `/courses/${course.subject}`}
                   style={{
                     display: "flex",
                     alignItems: "center",
