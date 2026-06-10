@@ -36,7 +36,7 @@ const courses = [
     rating: 4.8,
   },
   {
-    image: "/image2.png",
+    image: "/image6.png",
     color: "#e67e22",
     bgColor: "#fff7ee",
     badge: "Exam Prep",
