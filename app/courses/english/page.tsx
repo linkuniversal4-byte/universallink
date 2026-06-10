@@ -38,36 +38,31 @@ const courses = [
 export default function EnglishPage() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [animKey, setAnimKey] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const goTo = useCallback((index: number) => {
-    if (isTransitioning) return;
+    if (index === current) return;
     setDirection(index > current ? 1 : -1);
-    setIsTransitioning(true);
     setCurrent(index);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [current, isTransitioning]);
+    setAnimKey(k => k + 1);
+  }, [current]);
 
   const next = useCallback(() => {
-    if (isTransitioning) return;
     const nextIndex = (current + 1) % courses.length;
     setDirection(1);
-    setIsTransitioning(true);
     setCurrent(nextIndex);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [current, isTransitioning]);
+    setAnimKey(k => k + 1);
+  }, [current]);
 
   const prev = useCallback(() => {
-    if (isTransitioning) return;
     const prevIndex = (current - 1 + courses.length) % courses.length;
     setDirection(-1);
-    setIsTransitioning(true);
     setCurrent(prevIndex);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [current, isTransitioning]);
+    setAnimKey(k => k + 1);
+  }, [current]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -155,6 +150,7 @@ export default function EnglishPage() {
             >
               {/* Card */}
               <div
+                key={animKey}
                 className="carousel-card"
                 style={{
                   position: "relative",
@@ -164,6 +160,7 @@ export default function EnglishPage() {
                   transition: "box-shadow 0.5s ease",
                   aspectRatio: "16 / 10",
                   minHeight: 400,
+                  animation: `slideInRight 0.4s ease`,
                 }}
                 onMouseOver={(e) => { e.currentTarget.style.boxShadow = "0 40px 100px rgba(0,184,148,0.35), 0 15px 40px rgba(0,184,148,0.15)"; }}
                 onMouseOut={(e) => { e.currentTarget.style.boxShadow = "0 30px 80px rgba(0,184,148,0.25), 0 10px 30px rgba(0,184,148,0.1)"; }}
@@ -535,6 +532,17 @@ export default function EnglishPage() {
         <style>{`
           .slide-bg:hover {
             transform: scale(1.05) !important;
+          }
+          @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          .carousel-card {
+            animation: slideInRight 0.4s ease;
           }
           @media (max-width: 900px) {
             .carousel-card {
