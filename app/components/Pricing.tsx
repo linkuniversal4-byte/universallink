@@ -499,11 +499,26 @@ export default function Pricing() {
             gap: "16px",
           }}>
             {[
-              { name: "Western Union", icon: "🏦" },
-              { name: "MoneyGram", icon: "💸" },
-              { name: "Bank Transfer", icon: "🏛️" },
-              { name: "Ria", icon: "🌍" },
-              { name: "Wise", icon: "💳" },
+              {
+                name: "Western Union",
+                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#FFD100"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#FFD100" stroke="#E6BC00" strokeWidth="0.5"/><text x="17" y="25" fontSize="18" fontWeight="900" fill="#000" fontFamily="Arial, sans-serif">WU</text></svg>,
+              },
+              {
+                name: "MoneyGram",
+                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#FF0000"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#FF0000" stroke="#CC0000" strokeWidth="0.5"/><text x="14" y="25" fontSize="20" fontWeight="bold" fill="#fff" fontFamily="Arial, sans-serif">M</text></svg>,
+              },
+              {
+                name: "Bank Transfer",
+                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#1a2e6e"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#1a2e6e" stroke="#0f1d4a" strokeWidth="0.5"/><rect x="10" y="18" width="40" height="4" rx="1" fill="#fff"/><rect x="14" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="22" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="30" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="38" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="12" y="7" width="36" height="3" rx="1.5" fill="#fff"/></svg>,
+              },
+              {
+                name: "Ria",
+                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#003399"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#003399" stroke="#002277" strokeWidth="0.5"/><text x="18" y="25" fontSize="20" fontWeight="bold" fill="#fff" fontFamily="Arial, sans-serif">R</text></svg>,
+              },
+              {
+                name: "Wise",
+                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#00B9FF"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#00B9FF" stroke="#0099CC" strokeWidth="0.5"/><circle cx="18" cy="18" r="10" fill="#fff"/><text x="12" y="23" fontSize="16" fontWeight="bold" fill="#00B9FF" fontFamily="Arial, sans-serif">W</text><text x="32" y="23" fontSize="14" fontWeight="700" fill="#fff" fontFamily="Arial, sans-serif">wise</text></svg>,
+              },
             ].map((method, i) => (
               <div key={i} style={{
                 display: "flex",
@@ -522,7 +537,7 @@ export default function Pricing() {
                 onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
                 onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"; }}
               >
-                <span style={{ fontSize: "1.3rem" }}>{method.icon}</span>
+                <span style={{ display: "flex", alignItems: "center" }}>{method.icon}</span>
                 {method.name}
               </div>
             ))}
