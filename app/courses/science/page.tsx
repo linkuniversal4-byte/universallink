@@ -13,7 +13,7 @@ const courses = [
     desc: "Understand the laws of motion, energy, waves, and modern physics.",
     color: "#6c5ce7",
     bg: "linear-gradient(135deg, #4a30c0, #6c5ce7)",
-    image: "/image5.png",
+    image: "/image19.png",
   },
   {
     title: "Chemistry",
@@ -22,7 +22,7 @@ const courses = [
     desc: "Master atomic structure, bonding, reactions, and organic chemistry.",
     color: "#6c5ce7",
     bg: "linear-gradient(135deg, #5a3fd4, #a29bfe)",
-    image: "/image5.png",
+    image: "/image20.png",
   },
   {
     title: "Biology",
@@ -31,7 +31,7 @@ const courses = [
     desc: "Explore cells, genetics, human physiology, and ecosystems.",
     color: "#6c5ce7",
     bg: "linear-gradient(135deg, #4a30c0, #6c5ce7)",
-    image: "/image5.png",
+    image: "/image21.png",
   },
   {
     title: "Mathematics",
@@ -40,7 +40,7 @@ const courses = [
     desc: "Build skills in algebra, geometry, calculus, and problem solving.",
     color: "#6c5ce7",
     bg: "linear-gradient(135deg, #5a3fd4, #a29bfe)",
-    image: "/image5.png",
+    image: "/image22.png",
   },
 ];
 

@@ -1,0 +1,464 @@
+import { useState } from "react";
+import { Check, ArrowRight, Sparkles, Star, Shield, Users, CreditCard } from "lucide-react";
+
+const plans = [
+  {
+    title: "5 Classes / Week",
+    subtitle: "22 Classes Per Month",
+    badge: "Most Popular",
+    featured: true,
+    prices: [
+      { flag: "🇬🇧", currency: "£", label: "UK", amount: "30" },
+      { flag: "🇦🇺", currency: "A$", label: "Australia", amount: "60" },
+      { flag: "🇺🇸", currency: "$", label: "USA", amount: "40" },
+      { flag: "🇨🇦", currency: "C$", label: "Canada", amount: "55" },
+    ],
+    features: [
+      "Live Interactive Classes",
+      "Weekly Progress Reports",
+      "Study Materials",
+      "Teacher Support",
+      "Certificate of Completion",
+    ],
+  },
+  {
+    title: "4 Classes / Week",
+    subtitle: "16 Classes Per Month",
+    featured: false,
+    prices: [
+      { flag: "🇬🇧", currency: "£", label: "UK", amount: "25" },
+      { flag: "🇦🇺", currency: "A$", label: "Australia", amount: "50" },
+      { flag: "🇺🇸", currency: "$", label: "USA", amount: "35" },
+      { flag: "🇨🇦", currency: "C$", label: "Canada", amount: "45" },
+    ],
+    features: [
+      "Live Classes",
+      "Progress Tracking",
+      "Study Materials",
+      "Teacher Support",
+    ],
+  },
+  {
+    title: "3 Classes / Week",
+    subtitle: "12 Classes Per Month",
+    featured: false,
+    prices: [
+      { flag: "🇬🇧", currency: "£", label: "UK", amount: "25" },
+      { flag: "🇦🇺", currency: "A$", label: "Australia", amount: "50" },
+      { flag: "🇺🇸", currency: "$", label: "USA", amount: "35" },
+      { flag: "🇨🇦", currency: "C$", label: "Canada", amount: "45" },
+    ],
+    features: [
+      "Live Classes",
+      "Study Resources",
+      "Teacher Guidance",
+      "Monthly Assessment",
+    ],
+  },
+  {
+    title: "2 Classes / Week",
+    subtitle: "8 Classes Per Month",
+    featured: false,
+    prices: [
+      { flag: "🇬🇧", currency: "£", label: "UK", amount: "20" },
+      { flag: "🇦🇺", currency: "A$", label: "Australia", amount: "40" },
+      { flag: "🇺🇸", currency: "$", label: "USA", amount: "25" },
+      { flag: "🇨🇦", currency: "C$", label: "Canada", amount: "35" },
+    ],
+    features: [
+      "Live Classes",
+      "Study Material",
+      "Teacher Assistance",
+    ],
+  },
+];
+
+const weekendPlan = {
+  title: "Special Weekend Classes",
+  subtitle: "Available Every Saturday & Sunday",
+  prices: [
+    { flag: "🇬🇧", currency: "£", label: "UK", amount: "25" },
+    { flag: "🇦🇺", currency: "A$", label: "Australia", amount: "50" },
+    { flag: "🇺🇸", currency: "$", label: "USA", amount: "35" },
+    { flag: "🇨🇦", currency: "C$", label: "Canada", amount: "45" },
+  ],
+  features: [
+    "Weekend Availability",
+    "Small Group Sessions",
+    "Interactive Learning",
+    "Expert Teachers",
+  ],
+};
+
+const trustItems = [
+  { icon: <Shield size={16} />, text: "Money-Back Guarantee" },
+  { icon: <Users size={16} />, text: "500+ Active Students" },
+  { icon: <CreditCard size={16} />, text: "Secure Payments" },
+];
+
+function PricingCard({ plan }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: "1rem",
+        border: plan.featured ? "1px solid rgba(245,166,35,0.4)" : "1px solid #f3f4f6",
+        background: plan.featured
+          ? "linear-gradient(160deg, #ffffff 0%, #fffcf0 40%, #fff7e0 100%)"
+          : "#ffffff",
+        boxShadow: hovered
+          ? "0 20px 40px rgba(0,0,0,0.15)"
+          : plan.featured
+          ? "0 10px 30px rgba(245,166,35,0.2)"
+          : "0 4px 12px rgba(0,0,0,0.08)",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
+        transition: "all 0.3s ease",
+        zIndex: plan.featured ? 10 : 1,
+      }}
+    >
+      {/* Featured glow */}
+      {plan.featured && (
+        <div style={{
+          position: "absolute",
+          inset: "-1px",
+          borderRadius: "1rem",
+          background: "linear-gradient(135deg, #f5a623 0%, rgba(245,166,35,0.1) 50%, #f5a623 100%)",
+          filter: "blur(6px)",
+          opacity: 0.7,
+          zIndex: 0,
+        }} />
+      )}
+
+      {/* Badge */}
+      {plan.badge && (
+        <div style={{
+          position: "absolute",
+          top: "-12px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+        }}>
+          <span style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "4px",
+            background: "linear-gradient(to right, #f59e0b, #fbbf24)",
+            color: "white",
+            fontSize: "0.75rem",
+            fontWeight: "bold",
+            padding: "6px 16px",
+            borderRadius: "9999px",
+            boxShadow: "0 4px 12px rgba(245,158,11,0.3)",
+          }}>
+            <Sparkles size={12} />
+            {plan.badge}
+          </span>
+        </div>
+      )}
+
+      <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1, position: "relative", zIndex: 10 }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "1.25rem" }}>
+          <h3 style={{
+            fontSize: "1.2rem",
+            fontWeight: 800,
+            marginBottom: "4px",
+            color: plan.featured ? "#b45309" : "#1a2e6e",
+          }}>
+            {plan.title}
+          </h3>
+          <p style={{ fontSize: "0.85rem", color: "#9ca3af", fontWeight: 500 }}>{plan.subtitle}</p>
+        </div>
+
+        {/* Pricing */}
+        <div style={{ marginBottom: "1.25rem", display: "flex", flexDirection: "column", gap: "8px" }}>
+          {plan.prices.map((p, i) => (
+            <div key={i} style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "10px 12px",
+              borderRadius: "0.75rem",
+              fontSize: "0.875rem",
+              background: plan.featured ? "#fffbeb" : "#f9fafb",
+              border: plan.featured ? "1px solid rgba(245,166,35,0.3)" : "1px solid #f3f4f6",
+            }}>
+              <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ fontSize: "1rem" }}>{p.flag}</span>
+                <span style={{ color: "#6b7280", fontWeight: 500 }}>{p.label}</span>
+              </span>
+              <span style={{ fontWeight: 800, color: "#1a2e6e" }}>
+                {p.currency}{p.amount}
+                <span style={{ fontWeight: 400, color: "#9ca3af", fontSize: "0.75rem" }}>/mo</span>
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          height: "1px",
+          width: "100%",
+          marginBottom: "1.25rem",
+          background: plan.featured
+            ? "linear-gradient(to right, transparent, rgba(245,166,35,0.4), transparent)"
+            : "#f3f4f6",
+        }} />
+
+        {/* Features */}
+        <ul style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "1.75rem", flex: 1, listStyle: "none", padding: 0 }}>
+          {plan.features.map((f, i) => (
+            <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px", fontSize: "0.875rem" }}>
+              <span style={{
+                flexShrink: 0,
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "2px",
+                background: plan.featured
+                  ? "linear-gradient(135deg, #f59e0b, #fbbf24)"
+                  : "rgba(26,46,110,0.1)",
+                color: plan.featured ? "white" : "#1a2e6e",
+              }}>
+                <Check size={11} strokeWidth={3} />
+              </span>
+              <span style={{ color: "#4b5563" }}>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <button
+          style={{
+            width: "100%",
+            padding: "14px",
+            borderRadius: "0.75rem",
+            fontWeight: "bold",
+            fontSize: "0.875rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            border: "none",
+            cursor: "pointer",
+            background: plan.featured
+              ? "linear-gradient(to right, #f59e0b, #fbbf24)"
+              : "#1a2e6e",
+            color: "white",
+            boxShadow: plan.featured
+              ? "0 8px 20px rgba(245,158,11,0.3)"
+              : "0 4px 12px rgba(26,46,110,0.2)",
+            transition: "all 0.2s ease",
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = "0.9"}
+          onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+        >
+          Choose Plan
+          <ArrowRight size={14} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function WeekendCard({ plan }) {
+  return (
+    <div style={{
+      position: "relative",
+      borderRadius: "1rem",
+      overflow: "hidden",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+      background: "linear-gradient(160deg, #0f1d4a 0%, #1a2e6e 50%, #2a3f8f 100%)",
+    }}>
+      {/* Top line */}
+      <div style={{
+        position: "absolute",
+        top: 0, left: 0, right: 0,
+        height: "4px",
+        background: "linear-gradient(to right, transparent, #fbbf24, transparent)",
+      }} />
+
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        padding: "2.5rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5rem",
+      }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "center", justifyContent: "space-between" }}>
+          {/* Left */}
+          <div style={{ flex: 1, minWidth: "200px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+              <span style={{ fontSize: "1.5rem" }}>🌟</span>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>{plan.title}</h3>
+            </div>
+            <p style={{ color: "#fbbf24", fontWeight: 600, fontSize: "0.95rem", marginBottom: "1.25rem" }}>
+              {plan.subtitle}
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {plan.features.map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "#d1d5db" }}>
+                  <span style={{
+                    flexShrink: 0,
+                    width: "24px",
+                    height: "24px",
+                    borderRadius: "50%",
+                    background: "rgba(251,191,36,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}>
+                    <Star size={11} color="#fbbf24" />
+                  </span>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right */}
+          <div style={{ flexShrink: 0, minWidth: "220px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "1rem" }}>
+              {plan.prices.map((p, i) => (
+                <div key={i} style={{
+                  background: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "0.75rem",
+                  padding: "10px 16px",
+                  textAlign: "center",
+                }}>
+                  <span style={{ fontSize: "1rem" }}>{p.flag}</span>
+                  <div style={{ color: "white", fontWeight: 800, fontSize: "1rem", marginTop: "2px" }}>
+                    {p.currency}{p.amount}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button style={{
+              width: "100%",
+              padding: "14px",
+              borderRadius: "0.75rem",
+              fontWeight: "bold",
+              fontSize: "0.875rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+              border: "none",
+              cursor: "pointer",
+              background: "linear-gradient(to right, #f59e0b, #fbbf24)",
+              color: "white",
+              boxShadow: "0 8px 20px rgba(245,158,11,0.3)",
+              transition: "opacity 0.2s ease",
+            }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.9"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+            >
+              Join Weekend Classes
+              <ArrowRight size={14} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Pricing() {
+  return (
+    <section style={{
+      position: "relative",
+      padding: "5rem 1rem",
+      background: "white",
+      overflow: "hidden",
+    }}>
+      {/* Background */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0,
+        height: "600px",
+        background: "linear-gradient(to bottom, rgba(219,234,254,0.8), rgba(219,234,254,0.3), transparent)",
+        pointerEvents: "none",
+      }} />
+
+      <div style={{ position: "relative", zIndex: 10, maxWidth: "1280px", margin: "0 auto" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <span style={{
+            display: "inline-block",
+            background: "#fef3c7",
+            color: "#b45309",
+            fontSize: "0.75rem",
+            fontWeight: "bold",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            padding: "8px 20px",
+            borderRadius: "9999px",
+            marginBottom: "1.25rem",
+            border: "1px solid rgba(245,158,11,0.3)",
+          }}>
+            Pricing
+          </span>
+          <h2 style={{
+            fontSize: "clamp(2rem, 5vw, 3rem)",
+            fontWeight: 800,
+            color: "#1a2e6e",
+            lineHeight: 1.2,
+            marginBottom: "0.75rem",
+          }}>
+            Choose Your Learning Plan
+          </h2>
+          <p style={{ color: "#9ca3af", fontSize: "1.1rem", maxWidth: "500px", margin: "0 auto" }}>
+            Flexible class packages designed for students worldwide.
+          </p>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "12px", marginTop: "1.5rem" }}>
+            {trustItems.map((item, i) => (
+              <div key={i} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "8px 16px",
+                borderRadius: "0.75rem",
+                background: "rgba(255,255,255,0.7)",
+                border: "1px solid #f3f4f6",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                fontSize: "0.875rem",
+                color: "#6b7280",
+              }}>
+                <span style={{ color: "rgba(26,46,110,0.5)" }}>{item.icon}</span>
+                <span style={{ fontWeight: 500 }}>{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Pricing Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: "1.25rem",
+          marginBottom: "3rem",
+          alignItems: "stretch",
+        }}>
+          {plans.map((plan, i) => (
+            <PricingCard key={i} plan={plan} />
+          ))}
+        </div>
+
+        {/* Weekend Special */}
+        <WeekendCard plan={weekendPlan} />
+      </div>
+    </section>
+  );
+}

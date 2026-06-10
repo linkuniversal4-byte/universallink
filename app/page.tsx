@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Team from "./components/Team";
+import Pricing from "./components/Pricing";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <HomeCourses />
+        <Pricing />
         <Team/>
         <Contact />
       </main>
