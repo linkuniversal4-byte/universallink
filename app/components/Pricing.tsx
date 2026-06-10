@@ -96,7 +96,7 @@ const trustItems = [
   { icon: <CreditCard size={16} />, text: "Secure Payments" },
 ];
 
-function PricingCard({ plan }) {
+function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -269,7 +269,7 @@ function PricingCard({ plan }) {
   );
 }
 
-function WeekendCard({ plan }) {
+function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
   return (
     <div style={{
       position: "relative",
