@@ -97,6 +97,62 @@ const trustItems = [
   { icon: <CreditCard size={16} />, text: "Secure Payments" },
 ];
 
+// ─── Payment Method Icons using real image files ───────────────────────────
+
+const WesternUnionIcon = () => (
+  <img
+    src="/image31.png"
+    alt="Western Union"
+    width={40}
+    height={40}
+    style={{ borderRadius: "9px", objectFit: "contain" }}
+  />
+);
+
+const MoneyGramIcon = () => (
+  <img
+    src="/image32.png"
+    alt="MoneyGram"
+    width={40}
+    height={40}
+    style={{ borderRadius: "9px", objectFit: "contain" }}
+  />
+);
+
+const BankTransferIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="40" height="40" rx="9" fill="#1B3A6B" />
+    <path d="M6 17 L20 7 L34 17 Z" fill="white" />
+    <rect x="9"  y="18" width="3" height="11" rx="1" fill="white" />
+    <rect x="15" y="18" width="3" height="11" rx="1" fill="white" />
+    <rect x="21" y="18" width="3" height="11" rx="1" fill="white" />
+    <rect x="27" y="18" width="3" height="11" rx="1" fill="white" />
+    <rect x="6"  y="29" width="28" height="3" rx="1.5" fill="white" />
+  </svg>
+);
+
+const RiaIcon = () => (
+  <img
+    src="/image33.png"
+    alt="Ria"
+    width={40}
+    height={40}
+    style={{ borderRadius: "9px", objectFit: "contain" }}
+  />
+);
+
+const WiseIcon = () => (
+  <img
+    src="/image34.png"
+    alt="Wise"
+    width={40}
+    height={40}
+    style={{ borderRadius: "9px", objectFit: "contain" }}
+  />
+);
+
+// ──────────────────────────────────────────────────────────────────────────────
+
 function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
   const [hovered, setHovered] = useState(false);
 
@@ -123,7 +179,6 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
         zIndex: plan.featured ? 10 : 1,
       }}
     >
-      {/* Featured glow */}
       {plan.featured && (
         <div style={{
           position: "absolute",
@@ -136,15 +191,8 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
         }} />
       )}
 
-      {/* Badge */}
       {plan.badge && (
-        <div style={{
-          position: "absolute",
-          top: "-12px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 20,
-        }}>
+        <div style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
           <span style={{
             display: "inline-flex",
             alignItems: "center",
@@ -164,20 +212,13 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
       )}
 
       <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1, position: "relative", zIndex: 10 }}>
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "1.25rem" }}>
-          <h3 style={{
-            fontSize: "1.2rem",
-            fontWeight: 800,
-            marginBottom: "4px",
-            color: plan.featured ? "#b45309" : "#1a2e6e",
-          }}>
+          <h3 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "4px", color: plan.featured ? "#b45309" : "#1a2e6e" }}>
             {plan.title}
           </h3>
           <p style={{ fontSize: "0.85rem", color: "#9ca3af", fontWeight: 500 }}>{plan.subtitle}</p>
         </div>
 
-        {/* Pricing */}
         <div style={{ marginBottom: "1.25rem", display: "flex", flexDirection: "column", gap: "8px" }}>
           {plan.prices.map((p, i) => (
             <div key={i} style={{
@@ -211,7 +252,6 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
             : "#f3f4f6",
         }} />
 
-        {/* Features */}
         <ul style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "1.75rem", flex: 1, listStyle: "none", padding: 0 }}>
           {plan.features.map((f, i) => (
             <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px", fontSize: "0.875rem" }}>
@@ -236,7 +276,6 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
           ))}
         </ul>
 
-        {/* CTA */}
         <Link
           href="/#enroll"
           style={{
@@ -281,7 +320,6 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
       boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
       background: "linear-gradient(160deg, #0f1d4a 0%, #1a2e6e 50%, #2a3f8f 100%)",
     }}>
-      {/* Top line */}
       <div style={{
         position: "absolute",
         top: 0, left: 0, right: 0,
@@ -289,16 +327,8 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
         background: "linear-gradient(to right, transparent, #fbbf24, transparent)",
       }} />
 
-      <div style={{
-        position: "relative",
-        zIndex: 10,
-        padding: "2.5rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.5rem",
-      }}>
+      <div style={{ position: "relative", zIndex: 10, padding: "2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "center", justifyContent: "space-between" }}>
-          {/* Left */}
           <div style={{ flex: 1, minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
               <span style={{ fontSize: "1.5rem" }}>🌟</span>
@@ -328,7 +358,6 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
             </div>
           </div>
 
-          {/* Right */}
           <div style={{ flexShrink: 0, minWidth: "220px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "1rem" }}>
               {plan.prices.map((p, i) => (
@@ -381,6 +410,14 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
 }
 
 export default function Pricing() {
+  const paymentMethods = [
+    { name: "Western Union", icon: <WesternUnionIcon /> },
+    { name: "MoneyGram",     icon: <MoneyGramIcon /> },
+    { name: "Bank Transfer", icon: <BankTransferIcon /> },
+    { name: "Ria",           icon: <RiaIcon /> },
+    { name: "Wise",          icon: <WiseIcon /> },
+  ];
+
   return (
     <section id="pricing" style={{
       position: "relative",
@@ -388,7 +425,6 @@ export default function Pricing() {
       background: "white",
       overflow: "hidden",
     }}>
-      {/* Background */}
       <div style={{
         position: "absolute", top: 0, left: 0, right: 0,
         height: "600px",
@@ -427,7 +463,6 @@ export default function Pricing() {
             Flexible class packages designed for students worldwide.
           </p>
 
-          {/* Trust badges */}
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "12px", marginTop: "1.5rem" }}>
             {trustItems.map((item, i) => (
               <div key={i} style={{
@@ -498,46 +533,36 @@ export default function Pricing() {
             justifyContent: "center",
             gap: "16px",
           }}>
-            {[
-              {
-                name: "Western Union",
-                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#FFD100"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#FFD100" stroke="#E6BC00" strokeWidth="0.5"/><text x="17" y="25" fontSize="18" fontWeight="900" fill="#000" fontFamily="Arial, sans-serif">WU</text></svg>,
-              },
-              {
-                name: "MoneyGram",
-                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#FF0000"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#FF0000" stroke="#CC0000" strokeWidth="0.5"/><text x="14" y="25" fontSize="20" fontWeight="bold" fill="#fff" fontFamily="Arial, sans-serif">M</text></svg>,
-              },
-              {
-                name: "Bank Transfer",
-                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#1a2e6e"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#1a2e6e" stroke="#0f1d4a" strokeWidth="0.5"/><rect x="10" y="18" width="40" height="4" rx="1" fill="#fff"/><rect x="14" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="22" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="30" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="38" y="11" width="5" height="5" rx="1" fill="#fff"/><rect x="12" y="7" width="36" height="3" rx="1.5" fill="#fff"/></svg>,
-              },
-              {
-                name: "Ria",
-                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#003399"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#003399" stroke="#002277" strokeWidth="0.5"/><text x="18" y="25" fontSize="20" fontWeight="bold" fill="#fff" fontFamily="Arial, sans-serif">R</text></svg>,
-              },
-              {
-                name: "Wise",
-                icon: <svg width="36" height="36" viewBox="0 0 60 36" fill="none"><rect width="60" height="36" rx="6" fill="#00B9FF"/><rect x="1" y="1" width="58" height="34" rx="5" fill="#00B9FF" stroke="#0099CC" strokeWidth="0.5"/><circle cx="18" cy="18" r="10" fill="#fff"/><text x="12" y="23" fontSize="16" fontWeight="bold" fill="#00B9FF" fontFamily="Arial, sans-serif">W</text><text x="32" y="23" fontSize="14" fontWeight="700" fill="#fff" fontFamily="Arial, sans-serif">wise</text></svg>,
-              },
-            ].map((method, i) => (
-              <div key={i} style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "12px 20px",
-                borderRadius: "0.75rem",
-                background: "white",
-                border: "1px solid #e2e8f0",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-                fontSize: "0.9rem",
-                fontWeight: 600,
-                color: "#1a2e6e",
-                transition: "all 0.2s ease",
-              }}
-                onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
-                onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"; }}
+            {paymentMethods.map((method, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  padding: "12px 20px",
+                  borderRadius: "0.75rem",
+                  background: "white",
+                  border: "1px solid #e2e8f0",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
+                  color: "#1a2e6e",
+                  transition: "all 0.2s ease",
+                  cursor: "default",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)";
+                }}
               >
-                <span style={{ display: "flex", alignItems: "center" }}>{method.icon}</span>
+                <span style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+                  {method.icon}
+                </span>
                 {method.name}
               </div>
             ))}

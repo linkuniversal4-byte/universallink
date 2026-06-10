@@ -270,7 +270,7 @@ export default function Courses() {
 
                 {/* CTA */}
                 <div style={{ display: "flex", gap: 8, marginTop: "auto" }}>
-                  <a href="/enroll" style={{
+                  <a href={`/enroll?course=${encodeURIComponent(course.title)}`} style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                     padding: "10px", background: course.color, color: "white",
                     borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: "none",

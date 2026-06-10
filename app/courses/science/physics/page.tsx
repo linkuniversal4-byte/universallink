@@ -39,48 +39,45 @@ export default function PhysicsPage() {
             overflow: "hidden",
             boxShadow: "0 30px 80px rgba(108,92,231,0.25)",
             position: "relative",
+            minHeight: "clamp(400px, 50vw, 520px)",
+            backgroundImage: "url('/image19.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}>
             <div style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(135deg, rgba(74,48,192,0.88) 0%, rgba(108,92,231,0.65) 50%, rgba(60,30,140,0.88) 100%)",
+            }} />
+            <div style={{
               position: "relative",
-              height: "clamp(300px, 40vw, 450px)",
-              backgroundImage: "url('/image19.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              zIndex: 2,
+              height: "100%",
+              minHeight: "inherit",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              padding: "clamp(32px, 5vw, 56px)",
             }}>
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(135deg, rgba(74,48,192,0.9) 0%, rgba(108,92,231,0.7) 50%, rgba(60,30,140,0.85) 100%)",
-              }} />
-              <div style={{
-                position: "relative",
-                zIndex: 2,
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                padding: "clamp(32px, 5vw, 56px)",
+              <span style={{ fontSize: 48, marginBottom: 12 }}>⚛️</span>
+              <h1 style={{
+                fontSize: "clamp(28px, 4vw, 44px)",
+                fontWeight: 800,
+                color: "white",
+                marginBottom: 16,
+                lineHeight: 1.2,
               }}>
-                <span style={{ fontSize: 48, marginBottom: 12 }}>⚛️</span>
-                <h1 style={{
-                  fontSize: "clamp(28px, 4vw, 44px)",
-                  fontWeight: 800,
-                  color: "white",
-                  marginBottom: 8,
-                  lineHeight: 1.2,
-                }}>
-                  Physics Online Education
-                </h1>
-                <p style={{
-                  fontSize: "clamp(15px, 1.8vw, 18px)",
-                  color: "rgba(255,255,255,0.85)",
-                  maxWidth: 700,
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}>
-                  Our Physics Online Education program is designed to help students understand the fundamental laws of nature through interactive and engaging online classes. The course covers key topics such as motion, force, energy, electricity, magnetism, waves, and modern physics. Experienced teachers provide clear explanations, problem-solving techniques, and regular assessments to strengthen concepts and improve academic performance. With flexible scheduling and personalized learning support, students can build confidence and excel in physics from the comfort of their homes.
-                </p>
-              </div>
+                Physics Online Education
+              </h1>
+              <p style={{
+                fontSize: "clamp(15px, 1.8vw, 18px)",
+                color: "rgba(255,255,255,0.9)",
+                maxWidth: 750,
+                lineHeight: 1.8,
+                margin: 0,
+              }}>
+                Our Physics Online Education program is designed to help students understand the fundamental laws of nature through interactive and engaging online classes. The course covers key topics such as motion, force, energy, electricity, magnetism, waves, and modern physics. Experienced teachers provide clear explanations, problem-solving techniques, and regular assessments to strengthen concepts and improve academic performance. With flexible scheduling and personalized learning support, students can build confidence and excel in physics from the comfort of their homes.
+              </p>
             </div>
           </div>
         </div>
@@ -163,7 +160,7 @@ export default function PhysicsPage() {
 
               <div style={{ textAlign: "center", marginTop: 32 }}>
                 <Link
-                  href="/enroll"
+                  href="/enroll?course=Physics"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
