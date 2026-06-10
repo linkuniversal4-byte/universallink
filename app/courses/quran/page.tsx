@@ -13,7 +13,7 @@ const courses = [
     desc: "Learn Arabic letters, pronunciation, joining letters, and reading basics.",
     color: "#1a2e6e",
     bg: "linear-gradient(135deg, #0f1d4a, #1a2e6e)",
-    image: "/image1.png",
+    image: "/image11.png",
   },
   {
     title: "Tajweed",
@@ -22,7 +22,7 @@ const courses = [
     desc: "Learn Quran recitation rules and proper pronunciation.",
     color: "#b8860b",
     bg: "linear-gradient(135deg, #1a2e6e, #2d4a9e)",
-    image: "/image2.png",
+    image: "/image12.png",
   },
   {
     title: "Nazara",
@@ -31,7 +31,7 @@ const courses = [
     desc: "Read the Quran fluently with correct pronunciation and confidence.",
     color: "#c9a84c",
     bg: "linear-gradient(135deg, #0a1628, #1a2e6e)",
-    image: "/image3.png",
+    image: "/image13.png",
   },
   {
     title: "Tafseer",
@@ -40,7 +40,7 @@ const courses = [
     desc: "Understand the meanings and explanations of Quranic verses.",
     color: "#f5a623",
     bg: "linear-gradient(135deg, #1a2e6e, #3a5a9e)",
-    image: "/image4.png",
+    image: "/image14.png",
   },
   {
     title: "Quran Memorization (Hifz-ul-Quran)",
@@ -49,7 +49,7 @@ const courses = [
     desc: "Memorize the Quran under expert Hafiz teachers.",
     color: "#d4a843",
     bg: "linear-gradient(135deg, #0f1d4a, #2d4a9e)",
-    image: "/hafz.png",
+    image: "/image15.png",
   },
 ];
 

@@ -13,7 +13,7 @@ const courses = [
     desc: "Improve communication and fluency with live conversational practice.",
     color: "#00b894",
     bg: "linear-gradient(135deg, #006d5b, #00b894)",
-    image: "/image3.png",
+    image: "/image16.png",
   },
   {
     title: "Grammar",
@@ -22,7 +22,7 @@ const courses = [
     desc: "Learn English grammar from basic to advanced levels.",
     color: "#00b894",
     bg: "linear-gradient(135deg, #00897b, #00cec9)",
-    image: "/image3.png",
+    image: "/image17.png",
   },
   {
     title: "Writing",
@@ -31,25 +31,7 @@ const courses = [
     desc: "Improve essay, email, and academic writing skills.",
     color: "#00b894",
     bg: "linear-gradient(135deg, #006d5b, #00b894)",
-    image: "/image3.png",
-  },
-  {
-    title: "Reading",
-    sub: "reading",
-    emoji: "📖",
-    desc: "Develop reading comprehension and analytical skills.",
-    color: "#00b894",
-    bg: "linear-gradient(135deg, #00897b, #00cec9)",
-    image: "/image3.png",
-  },
-  {
-    title: "Vocabulary",
-    sub: "",
-    emoji: "📚",
-    desc: "Expand vocabulary and daily usage with interactive exercises.",
-    color: "#00b894",
-    bg: "linear-gradient(135deg, #006d5b, #00b894)",
-    image: "/image3.png",
+    image: "/image18.png",
   },
 ];
 
@@ -138,7 +120,7 @@ export default function EnglishPage() {
               Master English with expert teachers
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-              Speaking, Grammar, Writing, Reading &amp; Vocabulary — live online classes for all levels.
+               Speaking, Grammar &amp; Writing — live online classes for all levels.
             </p>
           </div>
         </section>
