@@ -409,7 +409,7 @@ export default function SciencePage() {
             </div>
 
             {/* Thumbnail dots below */}
-            <div style={{ display: "flex", justifyContent: "center", gap: 12, marginTop: 28 }}>
+            <div className="thumbnail-strip" style={{ display: "flex", justifyContent: "center", gap: 12, marginTop: 28 }}>
               {courses.map((c, i) => (
                 <button
                   key={i}
@@ -542,7 +542,7 @@ export default function SciencePage() {
             .carousel-card {
               border-radius: 16px !important;
               min-height: 320px !important;
-              aspectratio: auto !important;
+              aspect-ratio: auto !important;
             }
             .carousel-arrow {
               width: 36px !important;
@@ -555,9 +555,23 @@ export default function SciencePage() {
               right: 4px !important;
             }
           }
-          @media (max-width: 400px) {
+          @media (max-width: 480px) {
             .carousel-card {
-              min-height: 280px !important;
+              min-height: 300px !important;
+              border-radius: 14px !important;
+            }
+            .carousel-card h3 {
+              font-size: clamp(18px, 5vw, 22px) !important;
+            }
+            .carousel-card p {
+              font-size: 13px !important;
+              margin-bottom: 14px !important;
+            }
+            .carousel-card a {
+              width: 100% !important;
+              justify-content: center !important;
+              padding: 12px 20px !important;
+              font-size: 14px !important;
             }
           }
           @media (max-width: 768px) {
@@ -568,6 +582,18 @@ export default function SciencePage() {
           @media (max-width: 500px) {
             .benefits-grid {
               grid-template-columns: 1fr !important;
+            }
+            .thumbnail-strip {
+              gap: 8px !important;
+              overflow-x: auto !important;
+              justify-content: flex-start !important;
+              padding: 0 8px !important;
+              -webkit-overflow-scrolling: touch !important;
+            }
+            .thumbnail-strip button {
+              flex-shrink: 0 !important;
+              min-width: 50px !important;
+              height: 36px !important;
             }
           }
         `}</style>
