@@ -26,7 +26,7 @@ const courses = [
     students: "150+",
     rating: 4.9,
     subject: "english",
-    sub: "grammar",
+    sub: "",
   },
   {
     image: "/image5.png",
@@ -39,7 +39,7 @@ const courses = [
     students: "100+",
     rating: 4.8,
     subject: "science",
-    sub: "physics",
+    sub: "",
   },
   {
     image: "/image6.png",
@@ -52,7 +52,7 @@ const courses = [
     students: "80+",
     rating: 4.9,
     subject: "science",
-    sub: "mathematics",
+    sub: "",
   },
 ];
 

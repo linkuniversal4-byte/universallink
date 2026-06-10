@@ -173,6 +173,7 @@ export default function QuranPage() {
             >
               {/* Card */}
               <div
+                className="carousel-card"
                 style={{
                   position: "relative",
                   borderRadius: 28,
@@ -354,6 +355,7 @@ export default function QuranPage() {
               {/* Left Arrow */}
               <button
                 onClick={prev}
+                className="carousel-arrow carousel-arrow-left"
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -385,6 +387,7 @@ export default function QuranPage() {
               {/* Right Arrow */}
               <button
                 onClick={next}
+                className="carousel-arrow carousel-arrow-right"
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -527,6 +530,44 @@ export default function QuranPage() {
         <style>{`
           .slide-bg:hover {
             transform: scale(1.05) !important;
+          }
+          @media (max-width: 900px) {
+            .carousel-card {
+              border-radius: 20px !important;
+              min-height: 350px !important;
+            }
+            .carousel-arrow {
+              width: 40px !important;
+              height: 40px !important;
+            }
+            .carousel-arrow-left {
+              left: 8px !important;
+            }
+            .carousel-arrow-right {
+              right: 8px !important;
+            }
+          }
+          @media (max-width: 600px) {
+            .carousel-card {
+              border-radius: 16px !important;
+              min-height: 320px !important;
+              aspectratio: auto !important;
+            }
+            .carousel-arrow {
+              width: 36px !important;
+              height: 36px !important;
+            }
+            .carousel-arrow-left {
+              left: 4px !important;
+            }
+            .carousel-arrow-right {
+              right: 4px !important;
+            }
+          }
+          @media (max-width: 400px) {
+            .carousel-card {
+              min-height: 280px !important;
+            }
           }
           @media (max-width: 768px) {
             .benefits-grid {
