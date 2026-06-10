@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { Check, ArrowRight, Sparkles, Star, Shield, Users, CreditCard } from "lucide-react";
 
 const plans = [
@@ -236,7 +237,8 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
         </ul>
 
         {/* CTA */}
-        <button
+        <Link
+          href="/#enroll"
           style={{
             width: "100%",
             padding: "14px",
@@ -257,13 +259,14 @@ function PricingCard({ plan }: { plan: (typeof plans)[number] }) {
               ? "0 8px 20px rgba(245,158,11,0.3)"
               : "0 4px 12px rgba(26,46,110,0.2)",
             transition: "all 0.2s ease",
+            textDecoration: "none",
           }}
           onMouseEnter={e => e.currentTarget.style.opacity = "0.9"}
           onMouseLeave={e => e.currentTarget.style.opacity = "1"}
         >
           Choose Plan
           <ArrowRight size={14} />
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -344,29 +347,32 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
               ))}
             </div>
 
-            <button style={{
-              width: "100%",
-              padding: "14px",
-              borderRadius: "0.75rem",
-              fontWeight: "bold",
-              fontSize: "0.875rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              border: "none",
-              cursor: "pointer",
-              background: "linear-gradient(to right, #f59e0b, #fbbf24)",
-              color: "white",
-              boxShadow: "0 8px 20px rgba(245,158,11,0.3)",
-              transition: "opacity 0.2s ease",
-            }}
+            <Link
+              href="/#enroll"
+              style={{
+                width: "100%",
+                padding: "14px",
+                borderRadius: "0.75rem",
+                fontWeight: "bold",
+                fontSize: "0.875rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                border: "none",
+                cursor: "pointer",
+                background: "linear-gradient(to right, #f59e0b, #fbbf24)",
+                color: "white",
+                boxShadow: "0 8px 20px rgba(245,158,11,0.3)",
+                transition: "opacity 0.2s ease",
+                textDecoration: "none",
+              }}
               onMouseEnter={e => e.currentTarget.style.opacity = "0.9"}
               onMouseLeave={e => e.currentTarget.style.opacity = "1"}
             >
               Join Weekend Classes
               <ArrowRight size={14} />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -376,7 +382,7 @@ function WeekendCard({ plan }: { plan: typeof weekendPlan }) {
 
 export default function Pricing() {
   return (
-    <section style={{
+    <section id="pricing" style={{
       position: "relative",
       padding: "5rem 1rem",
       background: "white",
@@ -458,6 +464,70 @@ export default function Pricing() {
 
         {/* Weekend Special */}
         <WeekendCard plan={weekendPlan} />
+
+        {/* Payment Methods */}
+        <div style={{
+          marginTop: "3rem",
+          textAlign: "center",
+          padding: "2rem",
+          borderRadius: "1rem",
+          background: "linear-gradient(135deg, #f8fafc, #f1f5f9)",
+          border: "1px solid #e2e8f0",
+        }}>
+          <span style={{
+            display: "inline-block",
+            background: "#e2e8f0",
+            color: "#475569",
+            fontSize: "0.7rem",
+            fontWeight: "bold",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            padding: "6px 16px",
+            borderRadius: "9999px",
+            marginBottom: "1rem",
+          }}>
+            Payment Methods
+          </span>
+          <p style={{ color: "#64748b", fontSize: "0.9rem", marginBottom: "1.25rem" }}>
+            We accept payments via the following methods
+          </p>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "16px",
+          }}>
+            {[
+              { name: "Western Union", icon: "🏦" },
+              { name: "MoneyGram", icon: "💸" },
+              { name: "Bank Transfer", icon: "🏛️" },
+              { name: "Ria", icon: "🌍" },
+              { name: "Wise", icon: "💳" },
+            ].map((method, i) => (
+              <div key={i} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 20px",
+                borderRadius: "0.75rem",
+                background: "white",
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+                color: "#1a2e6e",
+                transition: "all 0.2s ease",
+              }}
+                onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
+                onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"; }}
+              >
+                <span style={{ fontSize: "1.3rem" }}>{method.icon}</span>
+                {method.name}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ArrowLeft, Clock, Calendar, BookOpen, Users, CheckCircle, ChevronDown, Star, ChevronRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, BookOpen, Users, ChevronDown, Star, ChevronRight } from "lucide-react";
 import { courseData, type SubCourse } from "./courseData";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
@@ -49,22 +49,16 @@ export default function CourseDetail({ subject, sub }: { subject: string; sub: s
       {/* 2. Overview Cards */}
       <OverviewCards data={data} />
 
-      {/* 3. Pricing */}
-      <PricingSection data={data} />
-
-      {/* 4. Schedule */}
-      <ScheduleSection data={data} />
-
-      {/* 5. Teacher */}
+      {/* 3. Teacher */}
       <TeacherSection data={data} />
 
-      {/* 6. Syllabus */}
+      {/* 4. Syllabus */}
       <SyllabusSection data={data} openModule={openModule} setOpenModule={setOpenModule} />
 
-      {/* 7. Reviews */}
+      {/* 5. Reviews */}
       <ReviewsSection data={data} />
 
-      {/* 8. FAQ */}
+      {/* 6. FAQ */}
       <FaqSection data={data} openFaq={openFaq} setOpenFaq={setOpenFaq} />
 
       <style>{`
@@ -182,107 +176,7 @@ function OverviewCards({ data }: { data: SubCourse }) {
   );
 }
 
-/* ---------- 3. Pricing ---------- */
-function PricingSection({ data }: { data: SubCourse }) {
-  return (
-    <div style={{ marginBottom: 48 }}>
-      <SectionHeading>Pricing &amp; Enrollment</SectionHeading>
-      <div style={{
-        background: "white",
-        border: "1px solid #e2e8f0",
-        borderRadius: 20,
-        padding: "clamp(24px, 3vw, 40px)",
-        maxWidth: 500,
-        margin: "0 auto",
-        textAlign: "center",
-        boxShadow: "0 8px 24px rgba(26,46,110,0.08)",
-      }}>
-        <div style={{ fontSize: 14, color: "#64748b", marginBottom: 4 }}>Monthly Fee</div>
-        <div style={{
-          fontSize: "clamp(32px, 4vw, 42px)",
-          fontWeight: 800,
-          color: data.color,
-          marginBottom: 16,
-        }}>
-          {data.pricing.monthlyFee}
-        </div>
-        <div style={{
-          display: "inline-block",
-          background: "#f1f5f9",
-          padding: "6px 16px",
-          borderRadius: 20,
-          fontSize: 13,
-          color: "#475569",
-          marginBottom: 20,
-        }}>
-          Registration: {data.pricing.registrationFee} (one-time)
-        </div>
-        <div style={{ textAlign: "left", marginBottom: 24 }}>
-          {data.pricing.whatsIncluded.map((item) => (
-            <div key={item} style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0", fontSize: 14, color: "#475569" }}>
-              <CheckCircle size={16} color={data.color} />
-              {item}
-            </div>
-          ))}
-        </div>
-        <a href="/enroll" style={{
-          display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
-          width: "100%", padding: "14px",
-          background: data.color, color: "white",
-          borderRadius: 12, fontSize: 16, fontWeight: 700,
-          textDecoration: "none",
-          boxShadow: `0 6px 20px ${data.color}40`,
-          boxSizing: "border-box",
-        }}>
-          Enroll Now <ChevronRight size={18} />
-        </a>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- 4. Schedule ---------- */
-function ScheduleSection({ data }: { data: SubCourse }) {
-  return (
-    <div style={{ marginBottom: 48 }}>
-      <SectionHeading>Class Schedule</SectionHeading>
-      <div style={{
-        background: "white",
-        border: "1px solid #e2e8f0",
-        borderRadius: 20,
-        overflow: "hidden",
-        boxShadow: "0 4px 12px rgba(26,46,110,0.06)",
-      }}>
-        <div style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 500 }}>
-            <thead>
-              <tr style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                {["Day", "Morning Batch", "Evening Batch"].map((h) => (
-                  <th key={h} style={{
-                    textAlign: "left", padding: "14px 20px",
-                    fontSize: 13, fontWeight: 700, color: "#1a2e6e",
-                    textTransform: "uppercase", letterSpacing: "0.05em",
-                  }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.schedule.map((row, i) => (
-                <tr key={i} style={{ borderBottom: i < data.schedule.length - 1 ? "1px solid #f1f5f9" : "none" }}>
-                  <td style={{ padding: "14px 20px", fontSize: 14, fontWeight: 600, color: "#1a2e6e" }}>{row.day}</td>
-                  <td style={{ padding: "14px 20px", fontSize: 14, color: "#475569" }}>{row.morningBatch}</td>
-                  <td style={{ padding: "14px 20px", fontSize: 14, color: "#475569" }}>{row.eveningBatch}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- 5. Teacher ---------- */
+/* ---------- 3. Teacher ---------- */
 function TeacherSection({ data }: { data: SubCourse }) {
   return (
     <div style={{ marginBottom: 48 }}>
@@ -317,7 +211,7 @@ function TeacherSection({ data }: { data: SubCourse }) {
   );
 }
 
-/* ---------- 6. Syllabus ---------- */
+/* ---------- 4. Syllabus ---------- */
 function SyllabusSection({ data, openModule, setOpenModule }: { data: SubCourse; openModule: number | null; setOpenModule: (i: number | null) => void }) {
   return (
     <div style={{ marginBottom: 48 }}>
@@ -374,7 +268,7 @@ function SyllabusSection({ data, openModule, setOpenModule }: { data: SubCourse;
   );
 }
 
-/* ---------- 7. Reviews ---------- */
+/* ---------- 5. Reviews ---------- */
 function ReviewsSection({ data }: { data: SubCourse }) {
   return (
     <div style={{ marginBottom: 48 }}>
@@ -408,7 +302,7 @@ function ReviewsSection({ data }: { data: SubCourse }) {
   );
 }
 
-/* ---------- 8. FAQ ---------- */
+/* ---------- 6. FAQ ---------- */
 function FaqSection({ data, openFaq, setOpenFaq }: { data: SubCourse; openFaq: number | null; setOpenFaq: (i: number | null) => void }) {
   return (
     <div style={{ marginBottom: 64 }}>
