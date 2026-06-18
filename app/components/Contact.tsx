@@ -221,34 +221,6 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
           from { opacity: 0; transform: translateY(-8px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .cdrop-btn {
-          width: 100%; display: flex; align-items: center; justify-content: space-between;
-          padding: 10px 14px; font-size: 14px;
-          border: 1px solid #e2e8f0; border-radius: 10px;
-          background: white; cursor: pointer; font-family: inherit;
-          transition: border-color 0.2s, box-shadow 0.2s;
-          box-sizing: border-box;
-        }
-        .cdrop-btn:hover { border-color: #cbd5e1; }
-        .cdrop-btn:focus { outline: none; border-color: #1a2e6e; box-shadow: 0 0 0 3px rgba(26,46,110,0.08); }
-        .cdrop-menu {
-          position: absolute; top: calc(100% + 4px); left: 0; right: 0;
-          background: white; border: 1px solid #e2e8f0; border-radius: 12px;
-          box-shadow: 0 12px 36px rgba(26,46,110,0.12);
-          z-index: 50; max-height: 280px; overflow-y: auto;
-          animation: cdropIn 0.15s ease-out;
-        }
-        @keyframes cdropIn {
-          from { opacity: 0; transform: translateY(-6px) scale(0.97); }
-          to   { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .cdrop-menu::-webkit-scrollbar { width: 4px; }
-        .cdrop-menu::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
-        .cdrop-group:not(:first-child) { border-top: 1px solid #f1f5f9; margin-top: 4px; padding-top: 4px; }
-        .cdrop-cat { padding: 6px 14px 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.08em; pointer-events: none; }
-        .cdrop-item { padding: 8px 16px; font-size: 14px; color: #1a2e6e; cursor: pointer; transition: background 0.12s, padding-left 0.12s; }
-        .cdrop-item:hover { background: #f0f4ff; padding-left: 20px; }
-        .cdrop-item.selected { background: #eef2ff; font-weight: 600; }
         @media (max-width: 1024px) {
           .info-grid { grid-template-columns: 1fr 1fr !important; }
         }
@@ -267,9 +239,13 @@ function CourseDropdown({ value, onChange }: { value: string; onChange: (v: stri
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handler = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
   }, []);
 
   const selected = courseGroups.flatMap(g => g.options).find(o => o.value === value);
@@ -277,7 +253,7 @@ function CourseDropdown({ value, onChange }: { value: string; onChange: (v: stri
   return (
     <div ref={ref} style={{ position: "relative" }}>
       <input type="hidden" name="course" value={value} required />
-      <button type="button" className="cdrop-btn" onClick={() => setOpen(!open)} style={{ color: selected ? "#1a2e6e" : "#94a3b8" }}>
+      <button type="button" className="cdrop-btn" onClick={() => setOpen(prev => !prev)} style={{ color: selected ? "#1a2e6e" : "#94a3b8" }}>
         <span>{selected ? selected.label : "Select Course"}</span>
         <ChevronDown size={15} style={{ color: "#94a3b8", transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none", flexShrink: 0 }} />
       </button>

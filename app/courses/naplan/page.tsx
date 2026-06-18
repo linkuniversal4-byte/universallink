@@ -13,7 +13,7 @@ const courses = [
     desc: "Master number, algebra, measurement, space & statistics with targeted NAPLAN practice.",
     color: "#8e44ad",
     bg: "linear-gradient(135deg, #6c3483, #8e44ad)",
-    image: "/image11.png",
+    image: "/image7.png",
   },
   {
     title: "Reading",
@@ -22,7 +22,7 @@ const courses = [
     desc: "Develop comprehension, interpretation & critical analysis skills for NAPLAN Reading.",
     color: "#8e44ad",
     bg: "linear-gradient(135deg, #7d3c98, #af7ac5)",
-    image: "/image12.png",
+    image: "/image7.png",
   },
   {
     title: "Writing",
@@ -31,7 +31,7 @@ const courses = [
     desc: "Excel in narrative, persuasive & informative writing with expert guidance and feedback.",
     color: "#8e44ad",
     bg: "linear-gradient(135deg, #6c3483, #8e44ad)",
-    image: "/image13.png",
+    image: "/image7.png",
   },
   {
     title: "Language Conventions",
@@ -40,7 +40,7 @@ const courses = [
     desc: "Master spelling, grammar, punctuation & vocabulary for NAPLAN success.",
     color: "#8e44ad",
     bg: "linear-gradient(135deg, #7d3c98, #af7ac5)",
-    image: "/image14.png",
+    image: "/image7.png",
   },
 ];
 

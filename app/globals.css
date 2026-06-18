@@ -260,3 +260,33 @@ body {
     display: none;
   }
 }
+
+/* Contact form course dropdown */
+.cdrop-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; font-size: 14px;
+  border: 1px solid #e2e8f0; border-radius: 10px;
+  background: white; cursor: pointer; font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.cdrop-btn:hover { border-color: #cbd5e1; }
+.cdrop-btn:focus { outline: none; border-color: #1a2e6e; box-shadow: 0 0 0 3px rgba(26,46,110,0.08); }
+.cdrop-menu {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+  background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(26,46,110,0.12);
+  z-index: 9999; max-height: 280px; overflow-y: auto;
+  animation: cdropIn 0.15s ease-out;
+}
+@keyframes cdropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.cdrop-menu::-webkit-scrollbar { width: 4px; }
+.cdrop-menu::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+.cdrop-group:not(:first-child) { border-top: 1px solid #f1f5f9; margin-top: 4px; padding-top: 4px; }
+.cdrop-cat { padding: 6px 14px 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.08em; pointer-events: none; }
+.cdrop-item { padding: 8px 16px; font-size: 14px; color: #1a2e6e; cursor: pointer; transition: background 0.12s, padding-left 0.12s; }
+.cdrop-item:hover { background: #f0f4ff; padding-left: 20px; }
+.cdrop-item.selected { background: #eef2ff; font-weight: 600; }

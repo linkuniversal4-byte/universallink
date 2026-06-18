@@ -273,8 +273,18 @@ export default function Navbar() {
                   border: "1px solid #e2e8f0",
                   transition: "all 0.2s ease",
                 }}
-                onMouseOver={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.borderColor = "#cbd5e1"; }}
-                onMouseOut={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#e2e8f0"; }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = social.color;
+                  e.currentTarget.style.borderColor = social.color;
+                  const svg = e.currentTarget.querySelector("svg");
+                  if (svg) svg.style.filter = "brightness(0) invert(1)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  const svg = e.currentTarget.querySelector("svg");
+                  if (svg) svg.style.filter = "none";
+                }}
               >
                 <BrandIcon name={social.icon} color={social.color} size={17} />
               </a>
