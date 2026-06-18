@@ -189,7 +189,7 @@ export default function Chatbot() {
           position: "fixed",
           bottom: 90,
           right: 20,
-          zIndex: 9999,
+          zIndex: 10000,
           width: 60,
           height: 60,
           borderRadius: "50%",
@@ -202,6 +202,7 @@ export default function Chatbot() {
           alignItems: "center",
           justifyContent: "center",
           transition: "transform 0.25s ease, box-shadow 0.25s ease",
+          WebkitTapHighlightColor: "transparent",
         }}
         onMouseOver={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(26,46,110,0.6)"; }}
         onMouseOut={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(26,46,110,0.5)"; }}
@@ -239,7 +240,7 @@ export default function Chatbot() {
             position: "fixed",
             bottom: 160,
             right: 20,
-            zIndex: 9999,
+            zIndex: 10000,
             width: 380,
             maxWidth: "calc(100vw - 40px)",
             height: 540,
