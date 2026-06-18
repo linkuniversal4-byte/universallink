@@ -62,7 +62,7 @@ function getGreeting() {
   return "Good evening";
 }
 
-const initialBot = `Hello! ${getGreeting()}! 👋 I'm here to help you with course information.\n\nTry asking me about any course like:\n• Quran Education (Noorani Qaida, Tajweed, Hifz, etc.)\n• English Language (Grammar, Speaking, Writing)\n• Sciences & Maths (Physics, Chemistry, Biology, Math)\n• GCSE or NAPLAN\n\nOr just type a course name!`;
+const initialBot = `Hello! ${getGreeting()}! I'm Universal Link's AI assistant 🤖\n\nI can help you with:\n• Course information (Quran, English, Science, GCSE, NAPLAN)\n• Pricing & plans\n• Enrollment & contact details\n\nJust type a course name or question!`;
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
@@ -98,6 +98,15 @@ export default function Chatbot() {
 
     if (/^(thanks|thank you|shukran)/.test(q)) {
       return "You're welcome! 🤗 If you have more questions, feel free to ask. I'm here to help!";
+    }
+
+    if (/^(enroll|enrollment|register|signup|contact|phone|whatsapp|email|call|admission)/.test(q)) {
+      return (
+        `📞 **Contact & Enrollment**\n\n` +
+        `WhatsApp / Phone: +92 333-3993355\n` +
+        `Email: universallink.co@gmail.com\n\n` +
+        `You can also fill out the enrollment form on our website to get started!`
+      );
     }
 
     if (/^(price|fee|cost|pricing|how much|payment|plan|package)/.test(q)) {
@@ -158,7 +167,7 @@ export default function Chatbot() {
   return (
     <>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => { setOpen(!open); if (open) setMessages([{ role: "bot", text: initialBot }]); }}
         style={{
           position: "fixed",
           bottom: 90,
@@ -182,7 +191,7 @@ export default function Chatbot() {
         onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
         aria-label="Chat with us"
       >
-        {open ? "✕" : "💬"}
+        {open ? "✕" : "🤖"}
       </button>
 
       {open && (
@@ -225,17 +234,17 @@ export default function Chatbot() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 18,
+                fontSize: 20,
               }}
             >
-              💬
+              🤖
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 700, fontSize: 15 }}>Course Assistant</div>
-              <div style={{ fontSize: 12, opacity: 0.7 }}>Ask me about any course</div>
+              <div style={{ fontWeight: 700, fontSize: 15 }}>AI Assistant</div>
+              <div style={{ fontSize: 12, opacity: 0.7 }}>Universal Link Education System</div>
             </div>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); setMessages([{ role: "bot", text: initialBot }]); }}
               style={{
                 background: "none",
                 border: "none",
