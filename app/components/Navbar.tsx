@@ -102,6 +102,10 @@ export default function Navbar() {
             <div style={{ fontWeight: 800, fontSize: 13, color: "#1a2e6e", letterSpacing: "0.05em" }}>UNIVERSAL LINK</div>
             <div style={{ fontSize: 9, fontWeight: 600, color: "#f5a623", letterSpacing: "0.12em" }}>ONLINE ACADEMY</div>
           </div>
+          <div className="brand-copy-mobile" style={{ lineHeight: 1.1 }}>
+            <div style={{ fontWeight: 800, fontSize: 12, color: "#1a2e6e", letterSpacing: "0.05em" }}>UNIVERSAL LINK</div>
+            <div style={{ fontSize: 8, fontWeight: 700, color: "#f5a623", letterSpacing: "0.1em" }}>EDUCATION</div>
+          </div>
         </a>
 
         <div className="desktop-nav" style={{ display: "flex", gap: 2, alignItems: "center" }}>
@@ -532,6 +536,9 @@ export default function Navbar() {
             padding: 2px !important;
           }
         }
+        .brand-copy-mobile {
+          display: none;
+        }
         @media (max-width: 420px) {
           .mobile-socials a {
             width: 22px !important;
@@ -543,6 +550,9 @@ export default function Navbar() {
           }
           .brand-copy {
             display: none !important;
+          }
+          .brand-copy-mobile {
+            display: block !important;
           }
         }
       `}</style>
