@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Chatbot from "./components/Chatbot";
 
 export function generateMetadata(): Metadata {
   return {
@@ -41,7 +42,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       {sharedHead}
-      <body>{children}</body>
+      <body>
+        {children}
+        <Chatbot />
+      </body>
     </html>
   );
 }

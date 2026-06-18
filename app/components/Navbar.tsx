@@ -100,11 +100,11 @@ export default function Navbar() {
           <img className="brand-logo" src="/logo.png" alt="Universal Link Online Academy" style={{ height: 42 }} />
           <div className="brand-copy" style={{ lineHeight: 1.1 }}>
             <div style={{ fontWeight: 800, fontSize: 13, color: "#1a2e6e", letterSpacing: "0.05em" }}>UNIVERSAL LINK</div>
-            <div style={{ fontSize: 9, fontWeight: 600, color: "#f5a623", letterSpacing: "0.12em" }}>ONLINE ACADEMY</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "#f5a623", letterSpacing: "0.1em" }}>EDUCATION SYSTEM</div>
           </div>
           <div className="brand-copy-mobile" style={{ lineHeight: 1.1 }}>
             <div style={{ fontWeight: 800, fontSize: 12, color: "#1a2e6e", letterSpacing: "0.05em" }}>UNIVERSAL LINK</div>
-            <div style={{ fontSize: 8, fontWeight: 700, color: "#f5a623", letterSpacing: "0.1em" }}>EDUCATION</div>
+            <div style={{ fontSize: 8, fontWeight: 700, color: "#f5a623", letterSpacing: "0.1em" }}>EDUCATION SYSTEM</div>
           </div>
         </a>
 
