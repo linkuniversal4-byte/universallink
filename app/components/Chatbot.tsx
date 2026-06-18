@@ -190,34 +190,47 @@ export default function Chatbot() {
           bottom: 90,
           right: 20,
           zIndex: 9999,
-          width: 56,
-          height: 56,
+          width: 60,
+          height: 60,
           borderRadius: "50%",
           border: "none",
-          background: "linear-gradient(135deg, #1a2e6e, #2a3f8f)",
+          background: "linear-gradient(135deg, #1a2e6e 0%, #2a3f8f 100%)",
           color: "white",
           cursor: "pointer",
-          boxShadow: "0 8px 28px rgba(26,46,110,0.45)",
+          boxShadow: "0 8px 32px rgba(26,46,110,0.5)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           transition: "transform 0.25s ease, box-shadow 0.25s ease",
-          fontSize: 24,
         }}
-        onMouseOver={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 12px 36px rgba(26,46,110,0.55)"; }}
-        onMouseOut={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(26,46,110,0.45)"; }}
+        onMouseOver={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(26,46,110,0.6)"; }}
+        onMouseOut={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(26,46,110,0.5)"; }}
         aria-label="Chat with us"
       >
         {open ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         ) : (
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            <line x1="9" y1="10" x2="15" y2="10" /><line x1="12" y1="7" x2="12" y2="13" />
+            <path d="M8 9h8" /><path d="M8 13h6" />
           </svg>
         )}
+        <span
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            width: 14,
+            height: 14,
+            borderRadius: "50%",
+            background: "#22c55e",
+            border: "2px solid white",
+            animation: "pulseOnline 2s ease-in-out infinite",
+          }}
+        />
+        <style>{`@keyframes pulseOnline { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); } 50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); } }`}</style>
       </button>
 
       {open && (
