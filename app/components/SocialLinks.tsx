@@ -2,7 +2,7 @@
 
 type Social = {
   name: string;
-  icon: "whatsapp" | "youtube" | "tiktok" | "snapchat" | "facebook" | "telegram";
+  icon: "whatsapp" | "youtube" | "tiktok" | "snapchat" | "facebook";
   color: string;
   href: string;
 };
@@ -37,12 +37,6 @@ export const socialLinks: Social[] = [
     icon: "facebook",
     color: "#1877f2",
     href: "https://www.facebook.com/share/1LTRJtsD5C/",
-  },
-  {
-    name: "Telegram",
-    icon: "telegram",
-    color: "#0088cc",
-    href: "https://t.me/universallink",
   },
 ];
 
@@ -94,12 +88,6 @@ export function BrandIcon({
       return (
         <svg {...common}>
           <path fill="#1877F2" d="M24 4C12.96 4 4 12.96 4 24c0 9.92 7.28 18.16 16.8 19.64V29.8h-5.04V24h5.04v-4.36c0-5 2.96-7.72 7.48-7.72 2.16 0 4.44.4 4.44.4v4.88h-2.5c-2.48 0-3.24 1.52-3.24 3.08V24h5.52l-.88 5.8h-4.64v13.84C36.72 42.16 44 33.92 44 24c0-11.04-8.96-20-20-20Z" />
-        </svg>
-      );
-    case "telegram":
-      return (
-        <svg {...common}>
-          <path fill="#0088cc" d="M24 4C12.96 4 4 12.96 4 24s8.96 20 20 20 20-8.96 20-20S35.04 4 24 4Zm9.04 14.04-3.12 14.72c-.24 1.04-.84 1.28-1.68.8l-4.64-3.44-2.24 2.16c-.24.24-.44.44-.92.44l.32-4.68 8.52-7.68c.36-.32-.08-.52-.56-.2l-10.52 6.64-4.56-1.44c-1-.32-1.02-1 .2-1.48l17.8-6.88c.84-.28 1.56.2 1.28 1.28Z" />
         </svg>
       );
     default:

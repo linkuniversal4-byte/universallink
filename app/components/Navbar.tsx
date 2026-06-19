@@ -511,8 +511,10 @@ export default function Navbar() {
       )}
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
           .desktop-socials { display: none !important; }
+        }
+        @media (max-width: 900px) {
           .nav-inner {
             height: 54px !important;
             padding: 0 8px !important;
@@ -535,6 +537,9 @@ export default function Navbar() {
         }
         .brand-copy-mobile {
           display: none;
+        }
+        @media (max-width: 600px) {
+          .desktop-cta { display: none !important; }
         }
         @media (max-width: 420px) {
           .mobile-socials a {
