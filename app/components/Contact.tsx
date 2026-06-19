@@ -83,7 +83,7 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="section-badge">Contact Us</span>
           <h2 style={{ fontSize: "clamp(24px, 4vw, 42px)", fontWeight: 800, color: "#1a2e6e", marginBottom: 12, lineHeight: 1.2 }}>
-            Book Your Free Trial Class
+            Free 3-Day Trial
           </h2>
           <p style={{ fontSize: 15, color: "#64748b", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
             Share a few details and our team will help you choose the right class and schedule.
@@ -95,7 +95,7 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
               display: "inline-flex", alignItems: "center", gap: 8,
               boxShadow: "0 4px 14px rgba(251,191,36,0.4)",
             }}>
-              <Star size={18} /> Free 3-Day Trial
+              <Star size={18} /> Book Your Free Trial Class
             </span>
           </div>
         </div>
