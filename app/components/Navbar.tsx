@@ -524,9 +524,6 @@ export default function Navbar() {
             gap: 6px !important;
           }
         }
-        @media (max-width: 1100px) {
-          .desktop-socials { display: none !important; }
-        }
         @media (max-width: 900px) {
           .nav-inner {
             height: 54px !important;
