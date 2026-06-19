@@ -257,42 +257,59 @@ export default function Navbar() {
         </div>
 
         <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div className="desktop-socials" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.name}
-                title={social.name}
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: 5,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "transparent",
-                  border: "1px solid #e2e8f0",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = social.color;
-                  e.currentTarget.style.borderColor = social.color;
-                  const svg = e.currentTarget.querySelector("svg");
-                  if (svg) svg.style.filter = "brightness(0) invert(1)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.borderColor = "#e2e8f0";
-                  const svg = e.currentTarget.querySelector("svg");
-                  if (svg) svg.style.filter = "none";
-                }}
-              >
-                <BrandIcon name={social.icon} color={social.color} size={12} />
-              </a>
-            ))}
+          <div className="desktop-group" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <a href="/#contact" className="desktop-cta" style={{
+              padding: "7px 14px",
+              background: "#1a2e6e", color: "white",
+              borderRadius: 8, textDecoration: "none",
+              display: "flex", alignItems: "center", gap: 6,
+              fontSize: 12, fontWeight: 600, whiteSpace: "nowrap",
+              transition: "all 0.2s ease",
+            }}
+              onMouseOver={(e) => { e.currentTarget.style.background = "#2a3f8f"; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = "#1a2e6e"; }}
+            >
+              <Calendar size={12} />
+              Book Free Trial
+            </a>
+
+            <div className="desktop-socials" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  title={social.name}
+                  style={{
+                    width: 24,
+                    height: 24,
+                    borderRadius: 5,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "transparent",
+                    border: "1px solid #e2e8f0",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = social.color;
+                    e.currentTarget.style.borderColor = social.color;
+                    const svg = e.currentTarget.querySelector("svg");
+                    if (svg) svg.style.filter = "brightness(0) invert(1)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.borderColor = "#e2e8f0";
+                    const svg = e.currentTarget.querySelector("svg");
+                    if (svg) svg.style.filter = "none";
+                  }}
+                >
+                  <BrandIcon name={social.icon} color={social.color} size={12} />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="mobile-socials" style={{ display: "none", alignItems: "center", gap: 3 }}>
@@ -318,21 +335,6 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-
-          <a href="/#contact" className="desktop-cta" style={{
-            padding: "7px 14px",
-            background: "#1a2e6e", color: "white",
-            borderRadius: 8, textDecoration: "none",
-            display: "flex", alignItems: "center", gap: 6,
-            fontSize: 12, fontWeight: 600, whiteSpace: "nowrap",
-            transition: "all 0.2s ease",
-          }}
-            onMouseOver={(e) => { e.currentTarget.style.background = "#2a3f8f"; }}
-            onMouseOut={(e) => { e.currentTarget.style.background = "#1a2e6e"; }}
-          >
-            <Calendar size={12} />
-            Book Free Trial
-          </a>
 
           <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{
             display: "none",
@@ -511,6 +513,17 @@ export default function Navbar() {
       )}
 
       <style>{`
+        @media (min-width: 1101px) {
+          .nav-actions {
+            align-items: flex-end !important;
+            gap: 6px !important;
+          }
+          .desktop-group {
+            flex-direction: column !important;
+            align-items: flex-end !important;
+            gap: 6px !important;
+          }
+        }
         @media (max-width: 1100px) {
           .desktop-socials { display: none !important; }
         }
