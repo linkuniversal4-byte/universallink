@@ -511,10 +511,8 @@ export default function Navbar() {
       )}
 
       <style>{`
-        @media (max-width: 1040px) {
-          .desktop-socials { display: none !important; }
-        }
         @media (max-width: 900px) {
+          .desktop-socials { display: none !important; }
           .nav-inner {
             height: 54px !important;
             padding: 0 8px !important;
