@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Calendar, ChevronDown } from "lucide-react";
+import { Menu, X, Calendar, ChevronDown, Home, BookOpen, DollarSign, Info, PlayCircle, MessageSquare, Mail } from "lucide-react";
 import { BrandIcon, socialLinks } from "./SocialLinks";
 
 const courseCategories = [
@@ -38,13 +38,13 @@ const courseCategories = [
 ];
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Courses", href: "/courses", hasDropdown: true },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "About Us", href: "/about" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Home", href: "/", icon: Home },
+  { label: "Courses", href: "/courses", hasDropdown: true, icon: BookOpen },
+  { label: "Pricing", href: "/#pricing", icon: DollarSign },
+  { label: "About Us", href: "/about", icon: Info },
+  { label: "How It Works", href: "/how-it-works", icon: PlayCircle },
+  { label: "Testimonials", href: "/testimonials", icon: MessageSquare },
+  { label: "Contact Us", href: "/#contact", icon: Mail },
 ];
 
 export default function Navbar() {
@@ -156,6 +156,7 @@ export default function Navbar() {
                     userSelect: "none",
                   }}
                 >
+                  <link.icon size={14} style={{ flexShrink: 0 }} />
                   {link.label}
                   <ChevronDown size={12} style={{
                     transition: "transform 0.25s ease",
@@ -263,6 +264,7 @@ export default function Navbar() {
                 onMouseOver={(e) => { if (activeLink !== link.label) e.currentTarget.style.background = "#f1f5f9"; }}
                 onMouseOut={(e) => { if (activeLink !== link.label) e.currentTarget.style.background = "transparent"; }}
               >
+                <link.icon size={14} style={{ flexShrink: 0 }} />
                 {link.label}
               </a>
             )
@@ -296,13 +298,13 @@ export default function Navbar() {
                   e.currentTarget.style.background = social.color;
                   e.currentTarget.style.borderColor = social.color;
                   const svg = e.currentTarget.querySelector("svg");
-                  if (svg) (svg as HTMLElement).style.filter = "brightness(0) invert(1)";
+                  if (svg) (svg as unknown as HTMLElement).style.filter = "brightness(0) invert(1)";
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.background = "transparent";
                   e.currentTarget.style.borderColor = "#e2e8f0";
                   const svg = e.currentTarget.querySelector("svg");
-                  if (svg) (svg as HTMLElement).style.filter = "none";
+                  if (svg) (svg as unknown as HTMLElement).style.filter = "none";
                 }}
               >
                 <BrandIcon name={social.icon} color={social.color} size={13} />
@@ -390,6 +392,7 @@ export default function Navbar() {
                   cursor: "pointer", userSelect: "none",
                 }}
               >
+                <link.icon size={16} style={{ flexShrink: 0 }} />
                 {link.label}
                 <ChevronDown size={16} style={{
                   transition: "transform 0.3s ease",
@@ -473,6 +476,7 @@ export default function Navbar() {
                 borderBottom: "1px solid #f1f5f9",
               }}
             >
+              <link.icon size={16} style={{ flexShrink: 0 }} />
               {link.label}
             </a>
           )
@@ -515,8 +519,23 @@ export default function Navbar() {
 
       {/* ── Responsive CSS ── */}
       <style>{`
-        /* ── XL screens (1440px+) ── */
-        @media (min-width: 1440px) {
+        /* ── XXL screens (1800px+) ── */
+        @media (min-width: 1800px) {
+          .nav-inner {
+            padding: 0 64px !important;
+            height: 76px !important;
+          }
+          .brand-logo { height: 50px !important; }
+          .brand-text div:first-child { font-size: 16px !important; }
+          .nav-item { font-size: 15px !important; padding: 9px 16px !important; }
+          .cta-btn { font-size: 15px !important; padding: 10px 24px !important; }
+          .desktop-nav { gap: 6px !important; }
+          .nav-actions { gap: 12px !important; }
+          .desktop-socials { gap: 6px !important; }
+        }
+
+        /* ── XL screens (1440–1799px) ── */
+        @media (min-width: 1440px) and (max-width: 1799px) {
           .nav-inner {
             padding: 0 48px !important;
             height: 72px !important;
@@ -533,6 +552,7 @@ export default function Navbar() {
           .nav-inner { padding: 0 32px !important; }
           .nav-item { font-size: 13px !important; padding: 8px 11px !important; }
           .desktop-nav { gap: 2px !important; }
+          .desktop-socials { gap: 4px !important; }
         }
 
         /* ── Laptop / standard desktop (901–1200px) ── */
@@ -547,7 +567,7 @@ export default function Navbar() {
           .cta-btn { font-size: 12px !important; padding: 7px 12px !important; }
         }
 
-        /* ── Tablet (601–900px): hamburger menu ── */
+        /* ── Tablet (≤900px): hamburger menu ── */
         @media (max-width: 900px) {
           .nav-inner { height: 56px !important; padding: 0 12px !important; }
           .brand-logo { height: 36px !important; }
@@ -560,7 +580,7 @@ export default function Navbar() {
           .mobile-menu-btn { display: block !important; }
         }
 
-        /* ── Mobile (≤480px): hide social icons in header, tighten up ── */
+        /* ── Mobile (≤480px) ── */
         @media (max-width: 480px) {
           .nav-inner { height: 52px !important; padding: 0 8px !important; }
           .brand-logo { height: 32px !important; }
@@ -576,7 +596,6 @@ export default function Navbar() {
           .brand-logo { height: 28px !important; }
         }
 
-        /* Hover states for nav items */
         .nav-item:hover {
           background: #f1f5f9 !important;
           color: #1a2e6e !important;
