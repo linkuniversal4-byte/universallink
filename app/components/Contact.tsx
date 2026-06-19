@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { BookOpen, CheckCircle2, ChevronDown, Clock, Mail, MapPin, MessageCircle, Phone, Send, User } from "lucide-react";
+import { BookOpen, CheckCircle2, ChevronDown, Clock, Mail, MapPin, MessageCircle, Phone, Send, Star, User } from "lucide-react";
 
 const contactInfo = [
   { icon: <Phone size={18} />, label: "Phone / WhatsApp", value: "+92 333-3993355", href: "tel:+923333993355", color: "#25d366" },
@@ -90,15 +90,12 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
             <span style={{
-              background: "linear-gradient(135deg, #fef3c7, #fde68a)", color: "#92400e",
-              padding: "6px 18px", borderRadius: 50, fontSize: 13, fontWeight: 700,
-              display: "inline-flex", alignItems: "center", gap: 6,
-              boxShadow: "0 2px 8px rgba(251,191,36,0.3)",
+              background: "linear-gradient(135deg, #fbbf24, #f59e0b)", color: "#1a1a2e",
+              padding: "8px 24px", borderRadius: 50, fontSize: 15, fontWeight: 800,
+              display: "inline-flex", alignItems: "center", gap: 8,
+              boxShadow: "0 4px 14px rgba(251,191,36,0.4)",
             }}>
-              <Clock size={15} /> Free 3-Day Trial
-            </span>
-            <span style={{ color: "#64748b", fontSize: 13, fontWeight: 500 }}>
-              &mdash; No commitment required
+              <Star size={18} /> Free 3-Day Trial
             </span>
           </div>
         </div>
