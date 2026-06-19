@@ -88,6 +88,19 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
           <p style={{ fontSize: 15, color: "#64748b", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
             Share a few details and our team will help you choose the right class and schedule.
           </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
+            <span style={{
+              background: "linear-gradient(135deg, #fef3c7, #fde68a)", color: "#92400e",
+              padding: "6px 18px", borderRadius: 50, fontSize: 13, fontWeight: 700,
+              display: "inline-flex", alignItems: "center", gap: 6,
+              boxShadow: "0 2px 8px rgba(251,191,36,0.3)",
+            }}>
+              <Clock size={15} /> Free 3-Day Trial
+            </span>
+            <span style={{ color: "#64748b", fontSize: 13, fontWeight: 500 }}>
+              &mdash; No commitment required
+            </span>
+          </div>
         </div>
 
         <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
