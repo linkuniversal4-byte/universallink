@@ -25,6 +25,14 @@ const team = [
     color: "#f5a623",
     initials: "DME",
   },
+  {
+    name: "Ali Shan",
+    role: "Team Leader",
+    tag: "TL",
+    photo: "",
+    color: "#6c5ce7",
+    initials: "AS",
+  },
 ];
 
 export default function Team() {

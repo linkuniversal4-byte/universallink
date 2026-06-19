@@ -500,6 +500,90 @@ export default function Pricing() {
         {/* Weekend Special */}
         <WeekendCard plan={weekendPlan} />
 
+        {/* Subjects Fees */}
+        <div style={{
+          marginTop: "3rem",
+          padding: "2rem",
+          borderRadius: "1rem",
+          background: "linear-gradient(135deg, #f8faff, #eef2ff)",
+          border: "1px solid #e2e8f0",
+        }}>
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <span style={{
+              display: "inline-block",
+              background: "rgba(26,46,110,0.08)",
+              color: "#1a2e6e",
+              fontSize: "0.75rem",
+              fontWeight: "bold",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              padding: "8px 20px",
+              borderRadius: "9999px",
+              marginBottom: "0.75rem",
+            }}>
+              Subjects Fees
+            </span>
+            <h3 style={{
+              fontSize: "clamp(1.3rem, 3vw, 1.8rem)",
+              fontWeight: 800,
+              color: "#1a2e6e",
+              marginBottom: "0.5rem",
+            }}>
+              Subject Pricing Per Month
+            </h3>
+            <p style={{ color: "#64748b", fontSize: "0.9rem" }}>
+              Choose your preferred schedule and region
+            </p>
+          </div>
+
+          <div style={{
+            maxWidth: 700,
+            margin: "0 auto",
+            overflow: "hidden",
+            borderRadius: "0.75rem",
+            border: "1px solid #e2e8f0",
+            background: "white",
+            boxShadow: "0 4px 16px rgba(26,46,110,0.06)",
+          }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{
+                  background: "#1a2e6e",
+                  color: "white",
+                }}>
+                  <th style={{ padding: "14px 20px", textAlign: "left", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>Region</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>5 Days / Week</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>3 Days / Week</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { flag: "🇦🇺", label: "Australia", code: "A$", five: "120", three: "80" },
+                  { flag: "🇬🇧", label: "United Kingdom", code: "£", five: "65", three: "45" },
+                  { flag: "🇨🇦", label: "Canada", code: "C$", five: "120", three: "80" },
+                  { flag: "🇺🇸", label: "United States", code: "$", five: "85", three: "55" },
+                ].map((row, i) => (
+                  <tr key={i} style={{
+                    borderBottom: i < 3 ? "1px solid #f1f5f9" : "none",
+                    background: i % 2 === 0 ? "white" : "#f8fafc",
+                  }}>
+                    <td style={{ padding: "14px 20px", display: "flex", alignItems: "center", gap: "10px", fontSize: "0.9rem", fontWeight: 600, color: "#1a2e6e" }}>
+                      <span style={{ fontSize: "1.2rem" }}>{row.flag}</span>
+                      {row.label}
+                    </td>
+                    <td style={{ padding: "14px 20px", textAlign: "center", fontSize: "0.95rem", fontWeight: 700, color: "#1a2e6e" }}>
+                      {row.code}{row.five}
+                    </td>
+                    <td style={{ padding: "14px 20px", textAlign: "center", fontSize: "0.95rem", fontWeight: 600, color: "#475569" }}>
+                      {row.code}{row.three}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* Payment Methods */}
         <div style={{
           marginTop: "3rem",
