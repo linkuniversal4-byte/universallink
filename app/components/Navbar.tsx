@@ -320,19 +320,17 @@ export default function Navbar() {
           </div>
 
           <a href="/#contact" className="desktop-cta" style={{
-            padding: "10px 20px",
+            padding: "7px 14px",
             background: "#1a2e6e", color: "white",
-            borderRadius: 10, textDecoration: "none",
-            display: "flex", alignItems: "center", gap: 8,
-            fontSize: 14, fontWeight: 700, whiteSpace: "nowrap",
-            letterSpacing: "0.02em",
-            boxShadow: "0 4px 14px rgba(26,46,110,0.25)",
-            transition: "all 0.25s ease",
+            borderRadius: 8, textDecoration: "none",
+            display: "flex", alignItems: "center", gap: 6,
+            fontSize: 12, fontWeight: 600, whiteSpace: "nowrap",
+            transition: "all 0.2s ease",
           }}
-            onMouseOver={(e) => { e.currentTarget.style.background = "#2a3f8f"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(26,46,110,0.35)"; }}
-            onMouseOut={(e) => { e.currentTarget.style.background = "#1a2e6e"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(26,46,110,0.25)"; }}
+            onMouseOver={(e) => { e.currentTarget.style.background = "#2a3f8f"; }}
+            onMouseOut={(e) => { e.currentTarget.style.background = "#1a2e6e"; }}
           >
-            <Calendar size={13} />
+            <Calendar size={12} />
             Book Free Trial
           </a>
 
