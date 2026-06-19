@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Calendar, ChevronDown, Home, BookOpen, DollarSign, Info, PlayCircle, MessageSquare, Mail } from "lucide-react";
+import { Menu, X, Calendar, ChevronDown } from "lucide-react";
 import { BrandIcon, socialLinks } from "./SocialLinks";
 
 const courseCategories = [
@@ -38,13 +38,13 @@ const courseCategories = [
 ];
 
 const navLinks = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "Courses", href: "/courses", hasDropdown: true, icon: BookOpen },
-  { label: "Pricing", href: "/#pricing", icon: DollarSign },
-  { label: "About Us", href: "/about", icon: Info },
-  { label: "How It Works", href: "/how-it-works", icon: PlayCircle },
-  { label: "Testimonials", href: "/testimonials", icon: MessageSquare },
-  { label: "Contact Us", href: "/#contact", icon: Mail },
+  { label: "Home", href: "/" },
+  { label: "Courses", href: "/courses", hasDropdown: true },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "About Us", href: "/about" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -156,7 +156,6 @@ export default function Navbar() {
                     userSelect: "none",
                   }}
                 >
-                  <link.icon size={14} style={{ flexShrink: 0 }} />
                   {link.label}
                   <ChevronDown size={12} style={{
                     transition: "transform 0.25s ease",
@@ -264,7 +263,6 @@ export default function Navbar() {
                 onMouseOver={(e) => { if (activeLink !== link.label) e.currentTarget.style.background = "#f1f5f9"; }}
                 onMouseOut={(e) => { if (activeLink !== link.label) e.currentTarget.style.background = "transparent"; }}
               >
-                <link.icon size={14} style={{ flexShrink: 0 }} />
                 {link.label}
               </a>
             )
@@ -392,7 +390,6 @@ export default function Navbar() {
                   cursor: "pointer", userSelect: "none",
                 }}
               >
-                <link.icon size={16} style={{ flexShrink: 0 }} />
                 {link.label}
                 <ChevronDown size={16} style={{
                   transition: "transform 0.3s ease",
@@ -476,7 +473,6 @@ export default function Navbar() {
                 borderBottom: "1px solid #f1f5f9",
               }}
             >
-              <link.icon size={16} style={{ flexShrink: 0 }} />
               {link.label}
             </a>
           )
