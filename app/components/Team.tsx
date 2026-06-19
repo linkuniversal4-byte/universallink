@@ -29,7 +29,7 @@ const team = [
     name: "Ali Shan",
     role: "Team Leader",
     tag: "TL",
-    photo: "",
+    photo: "/image45.png",
     color: "#6c5ce7",
     initials: "AS",
   },

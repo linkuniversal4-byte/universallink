@@ -267,9 +267,9 @@ export default function Navbar() {
                 aria-label={social.name}
                 title={social.name}
                 style={{
-                  width: 26,
-                  height: 26,
-                  borderRadius: 6,
+                  width: 24,
+                  height: 24,
+                  borderRadius: 5,
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -290,7 +290,7 @@ export default function Navbar() {
                   if (svg) svg.style.filter = "none";
                 }}
               >
-                <BrandIcon name={social.icon} color={social.color} size={14} />
+                <BrandIcon name={social.icon} color={social.color} size={12} />
               </a>
             ))}
           </div>
@@ -529,7 +529,6 @@ export default function Navbar() {
             gap: 2px !important;
           }
           .desktop-nav { display: none !important; }
-          .desktop-cta { display: none !important; }
           .mobile-socials { display: flex !important; }
           .mobile-menu-btn {
             display: block !important;
