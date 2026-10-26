@@ -113,7 +113,7 @@ export default function WhatsAppButton() {
             ].map((item) => (
               <a
                 key={item.label}
-                href={`https://wa.me/923333993355?text=${encodeURIComponent(item.msg)}`}
+                href={`https://wa.me/923150943361?text=${encodeURIComponent(item.msg)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -141,7 +141,7 @@ export default function WhatsAppButton() {
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         {/* Label (hidden on mobile) */}
         <a
-          href={`https://wa.me/923333993355?text=${waMessage}`}
+          href={`https://wa.me/923150943361?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           className="wa-label-btn"
