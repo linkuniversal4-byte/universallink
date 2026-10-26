@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { BookOpen, CheckCircle2, ChevronDown, Clock, Mail, MapPin, MessageCircle, Phone, Send, Star, User } from "lucide-react";
 
 const contactInfo = [
-  { icon: <Phone size={18} />, label: "Phone / WhatsApp", value: "+92 333-3993355", href: "tel:+923333993355", color: "#25d366" },
+  { icon: <Phone size={18} />, label: "Phone / WhatsApp", value: "+92 315-0943361", href: "tel:+923150943361", color: "#25d366" },
   { icon: <Mail size={18} />, label: "Email", value: "universallink.co@gmail.com", href: "mailto:universallink.co@gmail.com", color: "#1a2e6e" },
   { icon: <Clock size={18} />, label: "Working Hours", value: "Mon-Fri: Regular\nSat-Sun: Special\n24/7 Support", href: null, color: "#6c5ce7" },
   { icon: <MapPin size={18} />, label: "Location", value: "Online - Worldwide", href: null, color: "#e67e22" },
@@ -211,7 +211,7 @@ export default function Contact({ defaultCourse }: { defaultCourse?: string }) {
               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.78)", margin: "8px 0 16px", lineHeight: 1.6 }}>
                 Message us directly on WhatsApp and our support team will guide you.
               </p>
-              <a href="https://wa.me/923333993355" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://wa.me/923150943361" target="_blank" rel="noopener noreferrer" style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "#25d366", padding: "11px 20px", borderRadius: 8,
                 color: "white", textDecoration: "none", fontWeight: 700, fontSize: 14,

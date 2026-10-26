@@ -21,8 +21,8 @@ export default function Footer() {
               Connecting students to knowledge worldwide. Quality online education for Quran, English, Sciences, GCSE & NAPLAN.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <a href="tel:+923333993355" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8 }}>
-                <Phone size={13} /> +92 333-3993355
+              <a href="tel:+923150943361" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8 }}>
+                <Phone size={13} /> +92 315-0943361
               </a>
               <a href="mailto:universallink.co@gmail.com" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8, wordBreak: "break-all" }}>
                 <Mail size={13} /> universallink.co@gmail.com

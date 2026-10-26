@@ -75,7 +75,7 @@ function getReply(query: string): string {
   if (/^(enroll|enrollment|register|signup|contact|phone|whatsapp|email|call|admission)/.test(q)) {
     return (
       `📞 **Contact & Enrollment**\n\n` +
-      `WhatsApp / Phone: +92 333-3993355\n` +
+      `WhatsApp / Phone: +92 315-0943361\n` +
       `Email: universallink.co@gmail.com\n\n` +
       `You can also fill out the enrollment form on our website to get started!`
     );
